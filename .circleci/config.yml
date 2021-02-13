@@ -4,7 +4,7 @@ version: 2.1
 orbs:
   # Declare a dependency on the welcome-orb
   welcome: circleci/welcome-orb@0.4.1
-  node: circleci/node@4.1.0
+  node: circleci/node@2.0.2
 # Orchestrate or schedule a set of jobs
 workflows:
   # Name the workflow "welcome"
@@ -14,4 +14,5 @@ workflows:
       - welcome/run
   node:
     jobs:
-      - node/test
+      - node/test:
+          version: 13.11.0
