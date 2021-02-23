@@ -1,4 +1,5 @@
 import React from 'react';
+import './About.css';
 
 import { sideMenu as Menu } from './sideMenu.js';
 
