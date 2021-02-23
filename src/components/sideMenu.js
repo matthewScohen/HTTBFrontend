@@ -13,7 +13,7 @@ class sideMenu extends React.Component {
       <Menu>
         <a id="home" className="menu-item" href="/">Home</a>
         <a id="about" className="menu-item" href="/about">About</a>
-        <a onClick={ this.showSettings } className="menu-item--small" href="">Settings</a>
+        <a id="calendar" className="menu-item" href="/calendar">Calendar</a>
       </Menu>
     );
   }
