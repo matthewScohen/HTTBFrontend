@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Image } from "semantic-ui-react";
+import { Card } from "semantic-ui-react";
 
 import OfficerBio from "./OfficerBio.js";
 import ".././App.css";

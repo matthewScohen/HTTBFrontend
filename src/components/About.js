@@ -1,5 +1,5 @@
 import React from "react";
-import { Segment, Header, Image } from "semantic-ui-react";
+import { Image } from "semantic-ui-react";
 
 import "./About.css";
 import ".././App.css";
