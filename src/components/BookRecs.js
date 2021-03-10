@@ -40,10 +40,10 @@ function BookRecs() {
         <center>
           <h1>Book Recommendations</h1>
         </center>
-        <Table celled>
+        <Table Table striped selectable unstackable>
           <Table.Header>
-            <Table.HeaderCell>Title</Table.HeaderCell>
-            <Table.HeaderCell>Author</Table.HeaderCell>
+            <Table.HeaderCell>TITLE</Table.HeaderCell>
+            <Table.HeaderCell>AUTHOR</Table.HeaderCell>
           </Table.Header>
           <Table.Body>{tableContents}</Table.Body>
         </Table>
