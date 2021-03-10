@@ -7,7 +7,7 @@ import ".././App.css";
 import { sideMenu as Menu } from "./sideMenu.js";
 
 function BookRecs() {
-  const books = [
+  let books = [
     {
       title: "book1",
       author: "author1"
@@ -40,13 +40,17 @@ function BookRecs() {
         <center>
           <h1>Book Recommendations</h1>
         </center>
-        <Table Table striped selectable unstackable>
-          <Table.Header>
-            <Table.HeaderCell>TITLE</Table.HeaderCell>
-            <Table.HeaderCell>AUTHOR</Table.HeaderCell>
-          </Table.Header>
-          <Table.Body>{tableContents}</Table.Body>
-        </Table>
+        {!tableContents || tableContents.length === 0 ? (
+          <p>It seems there aren't any book recommendations yet...</p>
+        ) : (
+          <Table Table striped selectable unstackable>
+            <Table.Header>
+              <Table.HeaderCell>TITLE</Table.HeaderCell>
+              <Table.HeaderCell>AUTHOR</Table.HeaderCell>
+            </Table.Header>
+            <Table.Body>{tableContents}</Table.Body>
+          </Table>
+        )}
       </div>
     </div>
   );
