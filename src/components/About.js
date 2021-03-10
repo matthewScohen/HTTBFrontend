@@ -1,5 +1,4 @@
 import React from "react";
-import { Image } from "semantic-ui-react";
 
 import "./About.css";
 import ".././App.css";
@@ -15,7 +14,6 @@ function About() {
       <div id="page-wrap">
         <center>
           <h1>About Us</h1>
-          <Image src='../assets/images/books-header1.jpg' fluid />
         </center>
         <div>
           <h3>HISTORY</h3>
