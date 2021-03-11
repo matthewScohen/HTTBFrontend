@@ -3,7 +3,6 @@ import { Card, Image } from "semantic-ui-react";
 
 import OfficerBio from "./OfficerBio.js";
 import "./Home.css";
-import "./OfficerBio.css";
 
 import { sideMenu as Menu } from "./sideMenu.js";
 

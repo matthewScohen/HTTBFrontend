@@ -1,4 +1,5 @@
 import React from "react";
+import './OfficerBio.css';
 import { Card, Image } from "semantic-ui-react";
 
 function OfficerBio({ props }) {
