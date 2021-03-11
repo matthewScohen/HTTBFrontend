@@ -1,21 +1,23 @@
 import React from "react";
 import { Card, Image } from "semantic-ui-react";
+import { sideMenu as Menu } from "./sideMenu.js";
 
 import OfficerBio from "./OfficerBio.js";
-import "./Home.css";
 
-import { sideMenu as Menu } from "./sideMenu.js";
+import "./Home.css";
 
 function Home() {
   const bio1 = {
     name: "sally smith",
     position: "president",
-    description: "short bio"
+    description: "short bio",
+    imageSrc: "https://react.semantic-ui.com/images/avatar/large/matthew.png"
   };
   const bio2 = {
     name: "john smith",
     position: "vice-president",
-    description: "short bio"
+    description: "short bio",
+    imageSrc: "https://react.semantic-ui.com/images/avatar/large/matthew.png"
   };
 
   return (
