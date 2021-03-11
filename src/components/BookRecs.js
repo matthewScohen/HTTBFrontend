@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Table } from "semantic-ui-react";
+import { table as Table } from "semantic-ui-react";
 
 import '../css/BookRecs.css';
 import ".././App.css";
@@ -34,15 +34,15 @@ function BookRecs() {
       console.log(data[bookIndex].title)
       let book = data[bookIndex];
       let row = [
-        <Table.Row key={book.title}>
-          <Table.Cell>{book.title}</Table.Cell>
-          <Table.Cell>{book.author}</Table.Cell>
-        </Table.Row>
+        <tr key={book.title}>
+          <td>{book.title}</td>
+          <td>{book.author}</td>
+        </tr>
       ];
       tableContents.push(row);
     }
   }
-  
+
   return (
     //The outer-container contains everything including the menu
     //The page wrap must contain everything on the page except the menu
@@ -52,16 +52,19 @@ function BookRecs() {
         <center>
           <h1>Book Recommendations</h1>
         </center>
+
         {!tableContents || tableContents.length === 0 ? (
           <p>It seems there aren't any book recommendations yet...</p>
         ) : (
-          <Table Table striped selectable unstackable>
-            <Table.Header>
-              <Table.HeaderCell>TITLE</Table.HeaderCell>
-              <Table.HeaderCell>AUTHOR</Table.HeaderCell>
-            </Table.Header>
-            <Table.Body>{tableContents}</Table.Body>
-          </Table>
+          <table class="ui celled striped table">
+            <thead>
+              <tr>
+                <th>TITLE</th>
+                <th>AUTHOR</th>
+              </tr>
+            </thead>
+            <tbody>{tableContents}</tbody>
+          </table>
         )}
       </div>
     </div>
