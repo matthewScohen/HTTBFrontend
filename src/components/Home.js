@@ -4,7 +4,7 @@ import { sideMenu as Menu } from "./sideMenu.js";
 
 import OfficerBio from "./OfficerBio.js";
 
-import "./Home.css";
+import "../css/Home.css";
 
 function Home() {
   const bio1 = {

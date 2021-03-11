@@ -1,5 +1,5 @@
 import React from 'react';
-import './BookRecs.css';
+import '../css/BookRecs.css';
 
 import { sideMenu as Menu } from './sideMenu.js';
 
