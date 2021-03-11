@@ -30,7 +30,6 @@ function BookRecs() {
   {
     if(data[bookIndex] !== undefined)
     {
-      console.log(data[bookIndex].title)
       let book = data[bookIndex];
       let row = [
         <tr key={book.title}>
