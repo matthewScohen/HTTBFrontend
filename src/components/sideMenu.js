@@ -1,6 +1,6 @@
 import React from 'react';
 import { elastic as Menu } from 'react-burger-menu';
-import './sideMenu.css';
+import '../css/sideMenu.css';
 
 class sideMenu extends React.Component {
   showSettings (event) {

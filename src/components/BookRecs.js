@@ -1,12 +1,14 @@
 import React from "react";
 import { Table } from "semantic-ui-react";
 
-import "./BookRecs.css";
+import '../css/BookRecs.css';
 import ".././App.css";
 
-import { sideMenu as Menu } from "./sideMenu.js";
+import BookDataService from '../services/book.service';
+import { sideMenu as Menu } from './sideMenu.js';
 
 function BookRecs() {
+  console.log(BookDataService.getAll());
   let books = [
     {
       title: "book1",

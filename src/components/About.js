@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
-import "./About.css";
 import ".././App.css";
+import '../css/About.css';
 
 import { sideMenu as Menu } from "./sideMenu.js";
 

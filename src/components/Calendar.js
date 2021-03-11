@@ -1,7 +1,7 @@
 import React from 'react';
 
-import './Calendar.css';
 import ".././App.css";
+import '../css/Calendar.css';
 
 import { sideMenu as Menu } from './sideMenu.js';
 

@@ -1,4 +1,5 @@
 import React from "react";
+import '../css/OfficerBio.css';
 import { Card, Image } from "semantic-ui-react";
 
 import ".././App.css";
@@ -7,11 +8,11 @@ function OfficerBio({ props }) {
   const name = props.name;
   const position = props.position;
   const description = props.description;
-
+  const imageSrc = props.imageSrc;
   return (
-    <Card color="teal">
+    <Card>
       <Image
-        src="https://react.semantic-ui.com/images/avatar/large/matthew.png"
+        src={imageSrc}
         wrapped
         size="small"
         ui={false}
