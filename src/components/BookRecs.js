@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { table as Table } from "semantic-ui-react";
 
 import '../css/BookRecs.css';
 import ".././App.css";
@@ -29,7 +28,7 @@ function BookRecs() {
   let tableContents = [];
   for(var bookIndex in data)
   {
-    if(data[bookIndex] != undefined)
+    if(data[bookIndex] !== undefined)
     {
       console.log(data[bookIndex].title)
       let book = data[bookIndex];
