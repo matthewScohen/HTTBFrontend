@@ -1,9 +1,11 @@
 import React from 'react';
 import '../css/BookRecs.css';
 
+import BookDataService from '../services/book.service';
 import { sideMenu as Menu } from './sideMenu.js';
 
 function BookRecs() {
+  console.log(BookDataService.getAll());
   return (
     //The outer-container contains everything including the menu
     //The page wrap must contain everything on the page except the menu
