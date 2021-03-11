@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 import { Table } from "semantic-ui-react";
 
 import '../css/BookRecs.css';
@@ -8,31 +8,41 @@ import BookDataService from '../services/book.service';
 import { sideMenu as Menu } from './sideMenu.js';
 
 function BookRecs() {
-  console.log(BookDataService.getAll());
-  let books = [
-    {
-      title: "book1",
-      author: "author1"
-    },
-    {
-      title: "book2",
-      author: "author2"
+
+  /*
+  Code that accesses an API has to be done like this (with promise syntax) since you have to
+  wait for the API to respond before using the results of the call.
+  */
+  const [data, setData] = useState({});
+  useEffect(() => {
+    async function fetchData() {
+    const result = await BookDataService.getAll();
+    setData(result.data);
     }
-  ];
+    fetchData();
+  }, []);
+  /* From here on you can access the data object which is an array of book objects.
+     Any code that access data will run once when the page loads and then again when the
+     API returns.
+  */
 
   let tableContents = [];
-
-  for (let i = 0; i < books.length; i++) {
-    const book = books[i];
-    let row = [
-      <Table.Row key={book.title}>
-        <Table.Cell>{book.title}</Table.Cell>
-        <Table.Cell>{book.author}</Table.Cell>
-      </Table.Row>
-    ];
-    tableContents.push(row);
+  for(var bookIndex in data)
+  {
+    if(data[bookIndex] != undefined)
+    {
+      console.log(data[bookIndex].title)
+      let book = data[bookIndex];
+      let row = [
+        <Table.Row key={book.title}>
+          <Table.Cell>{book.title}</Table.Cell>
+          <Table.Cell>{book.author}</Table.Cell>
+        </Table.Row>
+      ];
+      tableContents.push(row);
+    }
   }
-
+  
   return (
     //The outer-container contains everything including the menu
     //The page wrap must contain everything on the page except the menu
