@@ -1,5 +1,8 @@
 import React from "react";
-import { Card, Image } from "semantic-ui-react";
+import { Card, Header, Image } from "semantic-ui-react";
+
+import Landing from "./Landing.js";
+import "./Landing.css";
 
 import OfficerBio from "./OfficerBio.js";
 import "./Home.css";
@@ -27,8 +30,11 @@ function Home() {
       <div id="page-wrap">
         <div>
           <center>
-            This is the home page. Stuff for the homepage goes here.
+            { /* This is the home page. Stuff for the homepage goes here.*/ }
           </center>
+        </div>
+        <div id="landing-home">
+          <Landing />
         </div>
         <div id="officer-bios">
           <center>
