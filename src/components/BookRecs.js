@@ -56,7 +56,7 @@ function BookRecs() {
         {!tableContents || tableContents.length === 0 ? (
           <p>It seems there aren't any book recommendations yet...</p>
         ) : (
-          <table class="ui celled striped table">
+          <table className="ui celled striped table">
             <thead>
               <tr>
                 <th>TITLE</th>
