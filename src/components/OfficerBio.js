@@ -2,6 +2,8 @@ import React from "react";
 import '../css/OfficerBio.css';
 import { Card, Image } from "semantic-ui-react";
 
+import ".././App.css";
+
 function OfficerBio({ props }) {
   const name = props.name;
   const position = props.position;
