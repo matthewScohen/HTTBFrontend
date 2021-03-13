@@ -3,8 +3,7 @@ import { Card } from "semantic-ui-react";
 
 import { sideMenu as Menu } from "./sideMenu.js";
 import OfficerBio from "./OfficerBio.js";
-import Landing from "./Landing.js";
-import { sideMenu as Menu } from "./sideMenu.js";
+import Landing from "./Landing.js"; 
 
 import ".././App.css";
 import "../css/Home.css";
