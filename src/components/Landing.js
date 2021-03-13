@@ -1,6 +1,7 @@
 import React from "react";
 import '../css/Landing.css';
 import { Button } from "semantic-ui-react";
+import BookOfTheMonth from "./BookOfTheMonth.js";
 
 function Landing() {
 
@@ -28,18 +29,16 @@ function Landing() {
                     <Button secondary size="large">Calendar</Button>
                     <Button secondary size="large">Officers</Button>
                 </div>
+
                 
+            
             </div>
             <div id="landing-botm">
-            <img src="https://jamesclear.com/wp-content/uploads/2018/09/AtomicHabits_1book.png"></img>
-                <div id="botm-container">
-                    <div id="botm-text">
-                        <h2>BOOK OF THE MONTH</h2>
-                        <h5>Atomic Habits - James Clear</h5>
-                        <a href="github.com">link</a>
-                    </div>
+                <BookOfTheMonth props={{
+                    ISBN: "9781847941831",
+                }}/>
+
                 </div>
-            </div>
         </div>
     </div>
   );

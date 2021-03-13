@@ -1,6 +1,7 @@
 import React from "react";
 import { Card } from "semantic-ui-react";
 
+import { sideMenu as Menu } from "./sideMenu.js";
 import OfficerBio from "./OfficerBio.js";
 import Landing from "./Landing.js";
 import { sideMenu as Menu } from "./sideMenu.js";
@@ -29,9 +30,14 @@ function Home() {
     <div id="outer-container">
       <Menu pageWrapId={"page-wrap"} outerContainerId={"outer-container"} />
       <div id="page-wrap">
-        <center>
-          <h1>Home</h1>
-          <div id="officer-bios">
+        <div>
+          <center>
+            {/*This is the home page. Stuff for the homepage goes here.*/}
+          </center>
+        </div>
+        <Landing />
+        <div id="officer-bios">
+          <center>
             <h2>Officer Bios</h2>
             <div id="officer-bios-cards">
               <Card.Group itemsPerRow={4}>
@@ -41,8 +47,8 @@ function Home() {
                 <OfficerBio class="officer-bio" props={bio2} />
               </Card.Group>
             </div>
-          </div>
-        </center>
+          </center>
+        </div>
       </div>
     </div>
   );
