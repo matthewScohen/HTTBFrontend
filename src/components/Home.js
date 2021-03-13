@@ -5,6 +5,7 @@ import { sideMenu as Menu } from "./sideMenu.js";
 import OfficerBio from "./OfficerBio.js";
 import Landing from "./Landing.js";
 
+
 import "../css/Home.css";
 
 function Home() {
