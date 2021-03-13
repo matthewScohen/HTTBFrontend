@@ -9,7 +9,7 @@ var openlibraryAxiosInstance = axios.create({
 
 class OpenLibraryService {
   getBookFromIsbn(isbn) {
-    return openlibraryAxiosInstance.get("https://openlibrary.org/api/books?bibkeys=ISBN:0385472579&format=json&jscmd=data");
+    return openlibraryAxiosInstance.get(`https://openlibrary.org/api/books?bibkeys=ISBN:${isbn}&format=json&jscmd=data`);
   }
 }
 
