@@ -36,3 +36,20 @@
     transform: rotate(360deg);
   }
 }
+
+#page-wrap {
+  width: 80%;
+  margin: auto;
+}
+
+h1 {
+  padding-top: 30px;
+  font-weight: bold;
+}
+
+h3 {
+  color: DodgerBlue;
+  font-style: italic;
+  font-weight: bold;
+  padding-top: 10px;
+}
