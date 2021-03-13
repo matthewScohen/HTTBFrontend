@@ -1,12 +1,13 @@
 import React from "react";
-import { Card, Image } from "semantic-ui-react";
-import { sideMenu as Menu } from "./sideMenu.js";
+import { Card } from "semantic-ui-react";
 
+import { sideMenu as Menu } from "./sideMenu.js";
 import OfficerBio from "./OfficerBio.js";
 import Landing from "./Landing.js";
 
-
+import ".././App.css";
 import "../css/Home.css";
+import "../css/OfficerBio.css";
 
 function Home() {
   const bio1 = {
@@ -45,8 +46,8 @@ function Home() {
                 <OfficerBio class="officer-bio" props={bio2} />
               </Card.Group>
             </div>
-          </center>
-        </div>
+          </div>
+        </center>
       </div>
     </div>
   );
