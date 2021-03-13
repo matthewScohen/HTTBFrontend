@@ -46,8 +46,8 @@ function Home() {
                 <OfficerBio class="officer-bio" props={bio2} />
               </Card.Group>
             </div>
-          </div>
-        </center>
+          </center>
+        </div>
       </div>
     </div>
   );
