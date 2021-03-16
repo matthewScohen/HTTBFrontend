@@ -8,13 +8,13 @@ import ".././App.css";
 
 function Voting() {
   const votingBooks = [
-    { title: "title1", author: "author1", ISBN: "9781416947202" },
-    { title: "title2", author: "author2", ISBN: "1442494425" }
+    { ISBN: "9781416947202" },
+    { ISBN: "1442494425" }
   ];
 
   let formContent = [];
   for (let book in votingBooks) {
-    formContent.push(<VoteBookCard book={book} />);
+    formContent.push(<VoteBookCard props={book} />);
   }
 
   return (
