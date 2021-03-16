@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import '../css/Landing.css';
 import { Button } from "semantic-ui-react";
 import BookOfTheMonth from "./BookOfTheMonth.js";
 
+import VoteBookService from "../services/voteBook.service"
 function Landing() {
-
 
   return (
     <div id="landing-container">
@@ -19,9 +19,9 @@ function Landing() {
                     <h5>WELCOME TO</h5>
                     <h1>HOOKED TO <br></br>THE BOOK CLUB</h1>
                     <div id="welcome-description">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
-                        et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                        et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
                         </p>
                         </div>
                 </div>
@@ -30,8 +30,8 @@ function Landing() {
                     <Button secondary size="large">Officers</Button>
                 </div>
 
-                
-            
+
+
             </div>
             <div id="landing-botm">
                 <BookOfTheMonth props={{

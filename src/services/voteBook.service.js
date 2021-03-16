@@ -1,21 +1,16 @@
 import axios from "axios";
 
 var voteBookAxiosInstance = axios.create({
-  baseURL: 'http://localhost:8080/api',
+  baseURL: 'http://localhost:8080/api/voteBooks/',
   headers: {
     "Content-type": "application/json"
   }
 });
 
-class VoteBookService() {
+class VoteBookService {
   getVoteBooks() {
     //TODO: Modify to only return vote books (books with field isSpoilerBook = false)
-    return openlibraryAxiosInstance.get("localhost:8080/api/voteBooks/");
-  }
-
-  getSpoilerBook() {
-    //TODO: Modify to only return the spoiler book (books with field isSpoilerBook = true)
-    return openlibraryAxiosInstance.get("localhost:8080/api/voteBooks/");
+    return voteBookAxiosInstance.get("/");
   }
 
   createVoteBook(title, isbn, isSpoilerBook) {
@@ -26,16 +21,19 @@ class VoteBookService() {
       isSpoilerBook: isSpoilerBook,
       voteCount: voteCount
     }
-    return openlibraryAxiosInstance.post("localhost:8080/api/voteBooks/", data);
+    return voteBookAxiosInstance.post("/", data);
   }
 
   updateVoteBookCount(isbn, newCount) {
-
+    let data = {
+      voteCount: newCount
+    }
+    return voteBookAxiosInstance.put(`/${isbn}`, data);
   }
 
   deleteVoteBook(isbn) {
-
+    return voteBookAxiosInstance.delete(`/${isbn}`);
   }
 }
 
-export default new VoteBookService
+export default new VoteBookService()
