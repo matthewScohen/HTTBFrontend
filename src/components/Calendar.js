@@ -1,22 +1,24 @@
-import React from 'react';
+import React from "react";
 
 import ".././App.css";
-import '../css/Calendar.css';
-
-import { sideMenu as Menu } from './sideMenu.js';
+import "../css/Calendar.css";
+import EventCalendar from "./EventCalendar";
 
 function Calendar() {
   return (
     //The outer-container contains everything including the menu
     //The page wrap must contain everything on the page except the menu
-    <div id="outer-container">
-      <Menu pageWrapId={ "page-wrap" } outerContainerId={ "outer-container" } />
-      <div id="page-wrap">
-        <center>This is the calendar page. Stuff for the calendar goes here.</center>
+    <div id="cal-outer-container">
+      <div id="cal-text-container">
+        <h1>Calendar</h1>
+        <p>Here is where you can see all of our club meetings and events.</p>
+      </div>
+      <div id="calendar-holder">
+        <EventCalendar />
       </div>
     </div>
   );
 }
 
-export default Calendar
+export default Calendar;
 export { Calendar };
