@@ -4,6 +4,7 @@ import { Card } from "semantic-ui-react";
 import { sideMenu as Menu } from "./sideMenu.js";
 import OfficerBio from "./OfficerBio.js";
 import Landing from "./Landing.js"; 
+import Calendar from "./Calendar.js"; 
 
 import ".././App.css";
 import "../css/Home.css";
@@ -35,6 +36,7 @@ function Home() {
           </center>
         </div>
         <Landing />
+        <Calendar />
         <div id="officer-bios">
           <center>
             <h2>Officer Bios</h2>

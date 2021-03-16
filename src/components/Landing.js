@@ -2,16 +2,21 @@ import React from "react";
 import "../css/Landing.css";
 import { Button } from "semantic-ui-react";
 import BookOfTheMonth from "./BookOfTheMonth.js";
+import wave from '../assets/images/wave.svg';
 
 function Landing() {
   return (
     <div id="landing-container">
+      
       <div id="landing-nav">
       <a className="nav-button" href="github.com">About</a>
       <a className="nav-button" href="github.com">Calendar</a>
       <a className="nav-button" href="github.com">Officers</a>
       </div>
+      <img src={wave} id="landing-wave"></img>
       <div id="landing-content">
+        
+      
         <div id="landing-welcome">
           <div id="welcome-text">
             <h5>WELCOME TO</h5>
@@ -29,6 +34,7 @@ function Landing() {
             <Button secondary size="large">Calendar</Button>
             <Button secondary size="large">Officers</Button>
           </div>
+          
         </div>
         <div id="landing-botm">
           <BookOfTheMonth
