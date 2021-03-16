@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Card, Image } from "semantic-ui-react";
 import OpenLibraryService from "../services/openlibrary.service";
 
-
 import ".././App.css";
 
 function VoteBookCard({ props }) {
@@ -17,36 +16,40 @@ function VoteBookCard({ props }) {
       //object to reference the isbn named object without having to hardcode the isbn.
       for (var data2 in book.data) {
         var data = book.data[data2];
-        console.log(data.authors[0].name);
       }
       setData(data);
     }
     fetchData();
-  }, []);
+  });
 
   //Define text variables
   var coverLink = "";
   var primaryAuthor = "";
   var title = "";
 
-  if (bookData.cover != undefined) {
-    coverLink = bookData.cover.large;
+  if (bookData) {
+    if (bookData.cover != undefined) {
+      coverLink = bookData.cover.large;
+    }
+    if (bookData.authors != undefined) {
+      primaryAuthor = bookData.authors[0].name;
+    }
+    if (bookData.title != undefined) {
+      title = bookData.title;
+    }
   }
-  if (bookData.authors != undefined) {
-    primaryAuthor = bookData.authors[0].name;
-  }
-  if (bookData.title != undefined) {
-    title = bookData.title;
-  }
-
-  <h5>{bookData && <p>{title + " - " + primaryAuthor}</p>}</h5>;
 
   return (
     <Card>
-      <img id="botm-cover" src={coverLink && `${coverLink}`}></img>
       <Card.Content>
-        <Card.Header>{title}</Card.Header>
-        <Card.Meta>{primaryAuthor}</Card.Meta>
+        <Image id="botm-cover" src={coverLink && `${coverLink}`}></Image>
+        <Card.Header>{props.title}</Card.Header>
+        <Card.Meta>{props.author}</Card.Meta>
+        <Card.Description>
+          <label>
+            <input type="radio" value={ISBN} />
+          </label>
+        </Card.Description>
       </Card.Content>
     </Card>
   );

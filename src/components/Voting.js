@@ -1,19 +1,19 @@
 import React from "react";
-import { Form } from "semantic-ui-react";
 
-import VoteBookCard from "./VoteBookCard.js";
 import { sideMenu as Menu } from "./sideMenu.js";
+import VoteBookCard from "./VoteBookCard.js";
 
 import ".././App.css";
 
 function Voting() {
   const votingBooks = [
-    { ISBN: "9781416947202" },
-    { ISBN: "1442494425" }
+    { title: "title1", author: "author1", voteCount: 0, ISBN: "9781416997931" },
+    { title: "title2", author: "author2", voteCount: 0, ISBN: "9781416997948" }
   ];
 
   let formContent = [];
-  for (let book in votingBooks) {
+  for (let i in votingBooks) {
+    const book = votingBooks[i];
     formContent.push(<VoteBookCard props={book} />);
   }
 
@@ -26,10 +26,10 @@ function Voting() {
         <center>
           This is the voting page. Stuff for the voting goes here.
         </center>
-        <Form>
-        {formContent}
-          <Form.Button type="submit">Submit</Form.Button>
-        </Form>
+        <form>
+          {formContent}
+          <button type="submit">Submit</button>
+        </form>
       </div>
     </div>
   );
