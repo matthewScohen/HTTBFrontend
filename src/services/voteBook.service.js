@@ -9,6 +9,12 @@ var voteBookAxiosInstance = axios.create({
 
 class VoteBookService() {
   getVoteBooks() {
+    //TODO: Modify to only return vote books (books with field isSpoilerBook = false)
+    return openlibraryAxiosInstance.get("localhost:8080/api/voteBooks/");
+  }
+
+  getSpoilerBook() {
+    //TODO: Modify to only return the spoiler book (books with field isSpoilerBook = true)
     return openlibraryAxiosInstance.get("localhost:8080/api/voteBooks/");
   }
 
