@@ -19,7 +19,7 @@ function BookOfTheMonth({ props }) {
       setData(data);
     }
     fetchData();
-  }, []);
+  });
 
   //Define text variables
   var coverLink = "";

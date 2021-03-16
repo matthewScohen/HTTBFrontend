@@ -4,6 +4,7 @@ import { Button } from "semantic-ui-react";
 import BookOfTheMonth from "./BookOfTheMonth.js";
 import wave from '../assets/images/wave.svg';
 
+import VoteBookService from "../services/voteBook.service"
 function Landing() {
   return (
     <div id="landing-container">
