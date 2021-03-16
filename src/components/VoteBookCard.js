@@ -43,8 +43,8 @@ function VoteBookCard({ props }) {
     <Card>
       <Card.Content>
         <Image id="botm-cover" src={coverLink && `${coverLink}`}></Image>
-        <Card.Header>{props.title}</Card.Header>
-        <Card.Meta>{props.author}</Card.Meta>
+        <Card.Header>{title}</Card.Header>
+        <Card.Meta>{primaryAuthor}</Card.Meta>
         <Card.Description>
           <label>
             <input type="radio" value={ISBN} />

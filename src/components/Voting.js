@@ -1,4 +1,5 @@
 import React from "react";
+import { Card } from "semantic-ui-react";
 
 import { sideMenu as Menu } from "./sideMenu.js";
 import VoteBookCard from "./VoteBookCard.js";
@@ -27,7 +28,7 @@ function Voting() {
           This is the voting page. Stuff for the voting goes here.
         </center>
         <form>
-          {formContent}
+          <Card.Group itemsPerRow={3}>{formContent}</Card.Group>
           <button type="submit">Submit</button>
         </form>
       </div>
