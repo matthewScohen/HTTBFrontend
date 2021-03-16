@@ -4,11 +4,10 @@
     flex-direction: column;
     align-items: center;
     background-color: rgb(17, 17, 48);
-    background-image: linear-gradient(90deg, #8ECAEF, #64AFDE );
 }
 
 #calendar-holder {
-    margin-bottom: 60px;
+    margin: 50px;
     width: 75%;
     display: inline-block;
     background-color: rgb(242, 242, 242);
@@ -19,8 +18,5 @@
 #cal-text-container {
     color: rgb(215, 215, 215);
     text-align: center;
-    position: absolute;
-    margin-top: -100px;
-    color:rgb(17, 17, 48);
 }
 
