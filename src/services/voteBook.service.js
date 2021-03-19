@@ -13,20 +13,6 @@ class VoteBookService {
     return voteBookAxiosInstance.get("/");
   }
 
-  getVoteBook(isbn) {
-    const books = VoteBookService.getVoteBooks();
-    for (const book in books) {
-      if (book.isbn == isbn) {
-        return book;
-      }
-    }
-    return null;
-  }
-
-  getVoteBookCount(isbn) {
-    return VoteBookService.getVoteBook(isbn).voteCount;
-  }
-
   createVoteBook(title, isbn, isSpoilerBook) {
     let voteCount = 0;
     let data = {
@@ -38,9 +24,9 @@ class VoteBookService {
     return voteBookAxiosInstance.post("/", data);
   }
 
-  updateVoteBookCount(isbn, change) {
+  updateVoteBookCount(isbn, newCount) {
     let data = {
-      voteCount: VoteBookService.getVoteBookCount(isbn) + change
+      voteCount: newCount
     }
     return voteBookAxiosInstance.put(`/${isbn}`, data);
   }
