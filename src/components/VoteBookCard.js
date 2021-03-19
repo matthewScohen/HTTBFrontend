@@ -47,7 +47,7 @@ function VoteBookCard({ props }) {
         <Card.Meta>{primaryAuthor}</Card.Meta>
         <Card.Description>
           <label>
-            <input type="radio" name="voteBook" value={ISBN} />
+            <input type="radio" name="voteBook" ref={props.ref} value={ISBN} />
           </label>
         </Card.Description>
       </Card.Content>
