@@ -8,7 +8,7 @@ import VoteBookService from "../services/voteBook.service"
 function Landing() {
   return (
     <div id="landing-container">
-      
+
       <div id="landing-nav">
       <a className="nav-button" href="github.com">About</a>
       <a className="nav-button" href="github.com">Calendar</a>
@@ -16,8 +16,6 @@ function Landing() {
       </div>
       <img src={wave} id="landing-wave"></img>
       <div id="landing-content">
-        
-      
         <div id="landing-welcome">
           <div id="welcome-text">
             <h5>WELCOME TO</h5>
@@ -35,7 +33,6 @@ function Landing() {
             <Button secondary size="large">Calendar</Button>
             <Button secondary size="large">Officers</Button>
           </div>
-          
         </div>
         <div id="landing-botm">
           <BookOfTheMonth

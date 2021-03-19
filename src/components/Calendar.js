@@ -1,8 +1,10 @@
 import React from "react";
 
+import EventCalendar from './EventCalendar'
+
 import ".././App.css";
-import "../css/Calendar.css";
-import EventCalendar from "./EventCalendar";
+import '../css/Calendar.css';
+
 
 function Calendar() {
   return (
@@ -16,6 +18,7 @@ function Calendar() {
       <div id="calendar-holder">
         <EventCalendar />
       </div>
+
     </div>
   );
 }
