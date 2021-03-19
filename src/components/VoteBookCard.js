@@ -28,13 +28,13 @@ function VoteBookCard({ props }) {
   var title = "";
 
   if (bookData) {
-    if (bookData.cover != undefined) {
+    if (bookData.cover) {
       coverLink = bookData.cover.large;
     }
-    if (bookData.authors != undefined) {
+    if (bookData.authors) {
       primaryAuthor = bookData.authors[0].name;
     }
-    if (bookData.title != undefined) {
+    if (bookData.title) {
       title = bookData.title;
     }
   }
@@ -47,7 +47,7 @@ function VoteBookCard({ props }) {
         <Card.Meta>{primaryAuthor}</Card.Meta>
         <Card.Description>
           <label>
-            <input type="radio" value={ISBN} />
+            <input type="radio" name="voteBook" value={ISBN} />
           </label>
         </Card.Description>
       </Card.Content>
