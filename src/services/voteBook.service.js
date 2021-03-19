@@ -40,7 +40,7 @@ class VoteBookService {
 
   updateVoteBookCount(isbn, change) {
     let data = {
-      voteCount: VoteBookService.getVoteBookCount(isbn)
+      voteCount: VoteBookService.getVoteBookCount(isbn) + change
     }
     return voteBookAxiosInstance.put(`/${isbn}`, data);
   }
