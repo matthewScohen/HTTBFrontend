@@ -26,7 +26,7 @@ function Voting() {
   const handleSubmit = e => {
     e.preventDefault();
 
-    alert("submit was pressed");
+    alert("submit was pressed and " + isbnEl + " was selected");
     VoteBookService.updateVoteBookCount(isbnEl, 1);
   };
 
