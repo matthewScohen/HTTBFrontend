@@ -24,11 +24,11 @@ function Voting() {
   /*
   END API CODE
   */
-  const [value, setValue] = useState({});
+  const [selectedBook, setValue] = useState({});
   const handleChange = (event, {value}) => setValue({ value });
 
   function createVoteCardFormField(book) {
-    console.log(value.value);
+    console.log(selectedBook.value);
     var label = book.title + " " + book.voteCount;
     return (
       <div>
@@ -37,8 +37,12 @@ function Voting() {
             <Radio
               label={label}
               name='radioGroup'
-              value={book.isbn}
-              checked={value.value === book.isbn}
+              value={book}
+              checked={
+                //THE UNDEFINED CHECK MUST COME BEFORE CHECKING THE VALUE OTHERWISE THE PROJECT
+                //TIRES TO READ THE ISBN OF VALUE WHICH WILL BE UNDEFINED BEFORE THE FIRST SELECTION
+                selectedBook.value != undefined && selectedBook.value.isbn === book.isbn
+              }
               onChange={handleChange}
             />
           </Form.Field>
