@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {Radio, Form} from 'semantic-ui-react';
+import {Radio, Form, Button} from 'semantic-ui-react';
 import VoteBookService from "../services/voteBook.service";
 import { sideMenu as Menu } from "./sideMenu.js";
 import VoteBookCard from "./VoteBookCard.js";
@@ -27,6 +27,12 @@ function Voting() {
   const [selectedBook, setValue] = useState({});
   const handleChange = (event, {value}) => setValue({ value });
 
+  function onSubmit() {
+    var currentBook = selectedBook.value;
+    console.log(selectedBook.value.isbn, selectedBook.value.voteCount+1);
+    VoteBookService.updateVoteBookCount(currentBook.isbn, currentBook.voteCount+1);
+  }
+
   function createVoteCardFormField(book) {
     console.log(selectedBook.value);
     var label = book.title + " " + book.voteCount;
@@ -39,7 +45,7 @@ function Voting() {
               name='radioGroup'
               value={book}
               checked={
-                //THE UNDEFINED CHECK MUST COME BEFORE CHECKING THE VALUE OTHERWISE THE PROJECT
+                //THE UNDEFINED CHECK MUST COME BEFORE CHECKING THE VALUE OTHERWISE THE PROGRAM
                 //TIRES TO READ THE ISBN OF VALUE WHICH WILL BE UNDEFINED BEFORE THE FIRST SELECTION
                 selectedBook.value != undefined && selectedBook.value.isbn === book.isbn
               }
@@ -75,13 +81,12 @@ function Voting() {
           <h1>Voting</h1>
         </center>
 
-
         <Form>
           <Form.Group widths='equal'>
             {createVoteCardFormFieldList(bookList)}
           </Form.Group>
         </Form>
-
+        <Button secondary size="large" onClick={onSubmit}>Submit</Button>
       </div>
     </div>
   );
