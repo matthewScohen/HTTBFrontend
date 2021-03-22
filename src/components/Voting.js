@@ -27,17 +27,18 @@ function Voting() {
   const [value, setValue] = useState({});
   const handleChange = (event, {value}) => setValue({ value });
 
-  function createVoteCardFormField(isbn) {
+  function createVoteCardFormField(book) {
     console.log(value.value);
+    var label = book.title + " " + book.voteCount;
     return (
       <div>
-        <VoteBookCard props={{ ISBN: isbn }} />
+        <VoteBookCard props={{ ISBN: book.isbn }} />
           <Form.Field>
             <Radio
-              label={isbn}
+              label={label}
               name='radioGroup'
-              value={isbn}
-              checked={value.value === isbn}
+              value={book.isbn}
+              checked={value.value === book.isbn}
               onChange={handleChange}
             />
           </Form.Field>
@@ -45,17 +46,17 @@ function Voting() {
     )
   }
 
-  function createVoteCardFormFieldList(isbnList) {
-    var fields = isbnList.map(createVoteCardFormField);
+  function createVoteCardFormFieldList(bookList) {
+    var fields = bookList.map(createVoteCardFormField);
     return fields;
   }
 
-  let isbnList = [];
+  let bookList = [];
   if(data[0] != undefined) {
       for(var bookIndex in data)
       {
         console.log(data[bookIndex].title);
-        isbnList.push(data[bookIndex].isbn);
+        bookList.push(data[bookIndex]);
       }
 
   }
@@ -73,7 +74,7 @@ function Voting() {
 
         <Form>
           <Form.Group widths='equal'>
-            {createVoteCardFormFieldList(isbnList)}
+            {createVoteCardFormFieldList(bookList)}
           </Form.Group>
         </Form>
 
