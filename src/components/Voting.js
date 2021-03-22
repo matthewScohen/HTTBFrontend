@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Card } from "semantic-ui-react";
-
+import {Radio, Form} from 'semantic-ui-react';
 import VoteBookService from "../services/voteBook.service";
 import { sideMenu as Menu } from "./sideMenu.js";
 import VoteBookCard from "./VoteBookCard.js";
@@ -13,30 +12,52 @@ function Voting() {
   wait for the API to respond before using the results of the call.
   */
   const [data, setData] = useState({});
+
   useEffect(() => {
     async function fetchData() {
       const result = await VoteBookService.getVoteBooks();
       setData(result.data);
     }
     fetchData();
-  }, []);
+  }, []); //The empty array keeps this function from being called continuously
 
-  const isbnEl = React.useRef(null);
+  /*
+  END API CODE
+  */
+  const [value, setValue] = useState({});
+  const handleChange = (event, {value}) => setValue({ value });
 
-  const handleSubmit = e => {
-    e.preventDefault();
+  function createVoteCardFormField(isbn) {
+    console.log(value.value);
+    return (
+      <div>
+        <VoteBookCard props={{ ISBN: isbn }} />
+          <Form.Field>
+            <Radio
+              label={isbn}
+              name='radioGroup'
+              value={isbn}
+              checked={value.value === isbn}
+              onChange={handleChange}
+            />
+          </Form.Field>
+      </div>
+    )
+  }
 
-    alert("submit was pressed");
-    VoteBookService.updateVoteBookCount(isbnEl, 1);
-  };
+  function createVoteCardFormFieldList(isbnList) {
+    var fields = isbnList.map(createVoteCardFormField);
+    return fields;
+  }
 
-  console.log(data);
+  let isbnList = [];
+  if(data[0] != undefined) {
+      for(var bookIndex in data)
+      {
+        console.log(data[bookIndex].title);
+        isbnList.push(data[bookIndex].isbn);
+      }
 
-  let formContent = [];
-  for (let i in data) {
-    let book = data[i];
-    book.ref = isbnEl;
-    formContent.push(<VoteBookCard props={book} />);
   }
 
   return (
@@ -48,16 +69,14 @@ function Voting() {
         <center>
           <h1>Voting</h1>
         </center>
-        {!formContent || formContent.length === 0 ? (
-          <center>
-            <p>It seems there isn't anything to vote on yet...</p>
-          </center>
-        ) : (
-          <form onSubmit={handleSubmit}>
-            <Card.Group itemsPerRow={3}>{formContent}</Card.Group>
-            <button type="submit">Submit</button>
-          </form>
-        )}
+
+
+        <Form>
+          <Form.Group widths='equal'>
+            {createVoteCardFormFieldList(isbnList)}
+          </Form.Group>
+        </Form>
+
       </div>
     </div>
   );
