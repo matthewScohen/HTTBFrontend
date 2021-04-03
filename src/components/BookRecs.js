@@ -42,20 +42,19 @@ function BookRecs() {
 
   const [open, setOpen] = React.useState(false);
 
-  function bookRecForm() {
-    const [title, setTitle] = useState();
-    const [author, setAuthor] = useState();
-    const handleSubmit= (e) => {
-      const newBook = {
-        title: title,
-        author: author,
-        isbn: 1234567890
-      }
-      BookDataService.create(newBook);
-      setOpen(false);
-      e.preventDefault();
+  const [title, setTitle] = useState();
+  const [author, setAuthor] = useState();
+  const handleSubmit= (e) => {
+    const newBook = {
+      title: title,
+      author: author,
+      isbn: 1234567890
     }
-
+    console.log(newBook);
+    BookDataService.create(newBook);
+    setOpen(false);
+    e.preventDefault();
+  }
 
   return (
     //The outer-container contains everything including the menu
