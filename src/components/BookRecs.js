@@ -1,6 +1,5 @@
-
-
 import React, { useState, useEffect } from "react";
+import { Button, Modal, Header, Icon } from "semantic-ui-react";
 
 import "../css/BookRecs.css";
 import ".././App.css";
@@ -40,6 +39,8 @@ function BookRecs() {
     }
   }
 
+  const [open, setOpen] = React.useState(false)
+
   return (
     //The outer-container contains everything including the menu
     //The page wrap must contain everything on the page except the menu
@@ -49,6 +50,26 @@ function BookRecs() {
         <center>
           <h1>Book Recommendations</h1>
         </center>
+        <Modal
+          closeIcon
+          open={open}
+          trigger={
+            <Button basic color='blue' icon labelPosition='left'>
+              <Icon name='add square'/>
+              Add Book Rec
+            </Button>}
+          onClose={() => setOpen(false)}
+          onOpen={() => setOpen(true)}
+        >
+          <Header icon='add square' content='Add Book Recommendation' />
+          <Modal.Content>
+          </Modal.Content>
+          <Modal.Actions>
+            <Button color='green' onClick={() => setOpen(false)}>
+              <Icon name='checkmark' /> Add
+            </Button>
+          </Modal.Actions>
+        </Modal>
         {!tableContents || tableContents.length === 0 ? (
           <p>It seems there aren't any book recommendations yet...</p>
         ) : (
