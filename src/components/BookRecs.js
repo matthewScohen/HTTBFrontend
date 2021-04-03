@@ -4,6 +4,7 @@ import { Button, Modal, Header, Icon, Form } from "semantic-ui-react";
 import "../css/BookRecs.css";
 import ".././App.css";
 
+import OpenLibraryService from "../services/openlibrary.service";
 import BookDataService from "../services/book.service";
 
 import { sideMenu as Menu } from "./sideMenu.js";
@@ -42,18 +43,46 @@ function BookRecs() {
 
   const [open, setOpen] = React.useState(false);
 
-  const [title, setTitle] = useState();
-  const [author, setAuthor] = useState();
+  const [bookData, setBookData] = useState({});
+
+  //Get data from openlibrary
+  useEffect(() => {
+    async function fetchData() {
+      const book = await OpenLibraryService.getBookFromIsbn(isbn);
+      //Each query returns an object based on the name of the ISBN so we loop through the book.data
+      //object to reference the isbn named object without having to hardcode the isbn.
+      for (var data2 in book.data) {
+        var data = book.data[data2];
+      }
+      setBookData(data);
+    }
+    fetchData();
+  });
+
+  //Define text variables
+  var primaryAuthor = "";
+  var title = "";
+
+  if(bookData) {
+    if (bookData.authors != undefined) {
+      primaryAuthor = bookData.authors[0].name;
+    }
+    if (bookData.title != undefined) {
+      title = bookData.title;
+    }
+  }
+
+  const [isbn, setISBN] = useState();
   const handleSubmit= (e) => {
+    e.preventDefault();
     const newBook = {
       title: title,
-      author: author,
-      isbn: 1234567890
+      author: primaryAuthor,
+      isbn: isbn
     }
-    console.log(newBook);
     BookDataService.create(newBook);
+    setISBN('');
     setOpen(false);
-    e.preventDefault();
   }
 
   return (
@@ -66,6 +95,7 @@ function BookRecs() {
           <h1>Book Recommendations</h1>
         </center>
         <Modal
+          centered={true}
           closeIcon
           open={open}
           trigger={
@@ -73,9 +103,9 @@ function BookRecs() {
               <Icon name='add square'/>
               Add Book Rec
             </Button>}
+          size='mini'
           onClose={() => setOpen(false)}
           onOpen={() => setOpen(true)}
-          size="tiny"
         >
           <Header icon='add square' content='Add Book Recommendation' />
           <Modal.Content>
@@ -83,20 +113,11 @@ function BookRecs() {
               <Form.Input
                 fluid
                 type='text'
-                name='title'
-                value={title}
-                label='Book Title'
-                placeholder='Book Title'
-                onChange={e => setTitle(e.target.value)}
-                />
-              <Form.Input
-                fluid
-                type='text'
-                name='author'
-                value={author}
-                label='Author'
-                placeholder='Author'
-                onChange={e => setAuthor(e.target.value)}
+                name='isbn'
+                value={isbn}
+                label='ISBN'
+                placeholder='ISBN'
+                onChange={e => setISBN(e.target.value)}
               />
               {/*
               <Form.Input
