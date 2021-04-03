@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Button, Modal, Header, Icon } from "semantic-ui-react";
+import { Button, Modal, Header, Icon, Form } from "semantic-ui-react";
 
 import "../css/BookRecs.css";
 import ".././App.css";
 
 import BookDataService from "../services/book.service";
+
 import { sideMenu as Menu } from "./sideMenu.js";
 
 function BookRecs() {
@@ -39,7 +40,22 @@ function BookRecs() {
     }
   }
 
-  const [open, setOpen] = React.useState(false)
+  const [open, setOpen] = React.useState(false);
+
+  function bookRecForm() {
+    const [title, setTitle] = useState();
+    const [author, setAuthor] = useState();
+    const handleSubmit= (e) => {
+      const newBook = {
+        title: title,
+        author: author,
+        isbn: 1234567890
+      }
+      BookDataService.create(newBook);
+      setOpen(false);
+      e.preventDefault();
+    }
+
 
   return (
     //The outer-container contains everything including the menu
@@ -60,15 +76,47 @@ function BookRecs() {
             </Button>}
           onClose={() => setOpen(false)}
           onOpen={() => setOpen(true)}
+          size="tiny"
         >
           <Header icon='add square' content='Add Book Recommendation' />
           <Modal.Content>
+            <Form>
+              <Form.Input
+                fluid
+                type='text'
+                name='title'
+                value={title}
+                label='Book Title'
+                placeholder='Book Title'
+                onChange={e => setTitle(e.target.value)}
+                />
+              <Form.Input
+                fluid
+                type='text'
+                name='author'
+                value={author}
+                label='Author'
+                placeholder='Author'
+                onChange={e => setAuthor(e.target.value)}
+              />
+              {/*
+              <Form.Input
+                fluid
+                label='Genres (separate with commas)'
+                value={values.genres}
+                placeholder='Genres'
+              />
+              */}
+              <Form.Button color="blue" onClick={handleSubmit}>Submit</Form.Button>
+            </Form>
           </Modal.Content>
+          {/*
           <Modal.Actions>
             <Button color='green' onClick={() => setOpen(false)}>
               <Icon name='checkmark' /> Add
             </Button>
           </Modal.Actions>
+          */}
         </Modal>
         {!tableContents || tableContents.length === 0 ? (
           <p>It seems there aren't any book recommendations yet...</p>
