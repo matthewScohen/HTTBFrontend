@@ -7,6 +7,7 @@ import BookOfTheMonth from "./BookOfTheMonth.js";
 import wave from '../assets/images/wave.svg';
 import bookDisplay from '../assets/images/11070.png';
 
+import VoteBookService from "../services/voteBook.service"
 function Landing() {
   return (
     <div id="landing-container">

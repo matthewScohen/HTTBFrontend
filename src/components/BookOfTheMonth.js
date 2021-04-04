@@ -20,21 +20,23 @@ function BookOfTheMonth({ props }) {
       setData(data);
     }
     fetchData();
-  }, []);
+  });
 
   //Define text variables
   var coverLink = "";
   var primaryAuthor = "";
   var title = "";
 
-  if (bookData.cover != undefined) {
-    coverLink = bookData.cover.large;
-  }
-  if (bookData.authors != undefined) {
-    primaryAuthor = bookData.authors[0].name;
-  }
-  if (bookData.title != undefined) {
-    title = bookData.title;
+  if(bookData) {
+    if (bookData.cover != undefined) {
+      coverLink = bookData.cover.large;
+    }
+    if (bookData.authors != undefined) {
+      primaryAuthor = bookData.authors[0].name;
+    }
+    if (bookData.title != undefined) {
+      title = bookData.title;
+    }
   }
 
   //Return component
