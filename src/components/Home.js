@@ -1,28 +1,18 @@
 import React from "react";
-import { Card } from "semantic-ui-react";
+
 
 import { sideMenu as Menu } from "./sideMenu.js";
-import OfficerBio from "./OfficerBio.js";
 import Landing from "./Landing.js"; 
 import Calendar from "./Calendar.js"; 
+import Officers from "./Officers.js"; 
+import Footer from "./Footer.js"; 
 
 import ".././App.css";
 import "../css/Home.css";
-import "../css/OfficerBio.css";
+
 
 function Home() {
-  const bio1 = {
-    name: "sally smith",
-    position: "president",
-    description: "short bio",
-    imageSrc: "https://react.semantic-ui.com/images/avatar/large/matthew.png"
-  };
-  const bio2 = {
-    name: "john smith",
-    position: "vice-president",
-    description: "short bio",
-    imageSrc: "https://react.semantic-ui.com/images/avatar/large/matthew.png"
-  };
+  
 
   return (
     //The outer-container contains everything including the menu
@@ -37,19 +27,9 @@ function Home() {
         </div>
         <Landing />
         <Calendar />
-        <div id="officer-bios">
-          <center>
-            <h2>Officer Bios</h2>
-            <div id="officer-bios-cards">
-              <Card.Group itemsPerRow={4}>
-                <OfficerBio class="officer-bio" props={bio1} />
-                <OfficerBio class="officer-bio" props={bio2} />
-                <OfficerBio class="officer-bio" props={bio2} />
-                <OfficerBio class="officer-bio" props={bio2} />
-              </Card.Group>
-            </div>
-          </center>
-        </div>
+        <Officers />
+        <Footer />
+        
       </div>
     </div>
   );

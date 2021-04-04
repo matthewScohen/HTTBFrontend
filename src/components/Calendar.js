@@ -4,8 +4,6 @@ import ".././App.css";
 import '../css/Calendar.css';
 import EventCalendar from './EventCalendar'
 
-
-
 function Calendar() {
   return (
     //The outer-container contains everything including the menu
