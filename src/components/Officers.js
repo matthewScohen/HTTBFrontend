@@ -8,18 +8,29 @@ import { Card } from "semantic-ui-react";
 import "../css/OfficerBio.css";
 import OfficerBio from "./OfficerBio.js";
 
+import bijuriImage from '../assets/images/bijuri.jpeg';
+import lucyImage from '../assets/images/lucy.jpeg';
+import toshitaImage from '../assets/images/toshita.jpeg';
+
 function Officers() {
     const bio1 = {
-        name: "sally smith",
-        position: "president",
-        description: "short bio",
-        imageSrc: "https://react.semantic-ui.com/images/avatar/large/matthew.png"
+        name: "Lucy Frank",
+        position: "President",
+        description: "I’m Lucy, a senior Environmental Science major and librarian-in-training. When I’m not reading, I can be found climbing trees, knitting, or searching for my last three Korok seeds. Give me recommendations for great fantasy novels!",
+        imageSrc: lucyImage
       };
       const bio2 = {
-        name: "john smith",
-        position: "vice-president",
-        description: "short bio",
-        imageSrc: "https://react.semantic-ui.com/images/avatar/large/matthew.png"
+        name: "Bijuri Patel",
+        position: "Vice Presdent (Veep)",
+        description: "I'm Bijuri, a senior Information Systems major aiming to be a technical writer. I love indulging in stories, and my favorites include Percy Jackson and the Olympians; Six of Crows and Crooked Kingdom; and Red, White & Royal Blue. Please let me know what your favorite books are!",
+        imageSrc: bijuriImage
+      };
+
+      const bio3 = {
+        name: "Toshita Barve",
+        position: "Treasurer",
+        description: "I'm Toshita, a junior Biology major, minoring in Sociology. I love to read but please don't recommend any books to me because my TBR already has 1800 books on it!",
+        imageSrc: toshitaImage
       };
 
   return (
@@ -41,11 +52,12 @@ function Officers() {
             <div id="officer-bios-cards">
                 <div class="cardRow">
                 <div><OfficerBio class="officer-bio" props={bio1} /></div>
-                <div><OfficerBio class="officer-bio" props={bio1} /></div>
                 </div>
                 <div class="cardRow">
                 <div><OfficerBio class="officer-bio" props={bio2} /></div>
-                <div><OfficerBio class="officer-bio" props={bio2} /></div>
+                </div>
+                <div class="cardRow">
+                <div><OfficerBio class="officer-bio" props={bio3} /></div>
                 </div>
             </div>
           </center>
@@ -55,4 +67,3 @@ function Officers() {
 
 export default Officers
 export { Officers };
-
