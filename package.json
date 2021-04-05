@@ -12,6 +12,7 @@
     "bootstrap": "^4.6.0",
     "fast-glob": "^3.2.5",
     "react": "^17.0.1",
+    "react-awesome-button": "^6.5.1",
     "react-burger-menu": "^3.0.3",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",

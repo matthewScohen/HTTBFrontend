@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import OpenLibraryService from "../services/openlibrary.service";
 import "../css/Landing.css";
+import { Icon } from "semantic-ui-react";
 
 function BookOfTheMonth({ props }) {
   const ISBN = props.ISBN;
@@ -40,14 +41,15 @@ function BookOfTheMonth({ props }) {
 
   //Return component
   return (
-    <div id="botm-container">
-      <img id="botm-cover" src={coverLink && `${coverLink}`}></img>
-      <div id="botm-text">
-        <h2>SPOILER BOOK</h2>
-        <h5>{bookData && <p>{title + " - " + primaryAuthor}</p>}</h5>
-        <a href="github.com">link</a>
-      </div>
+    <div id="spoiler-book">
+      <Icon name="book" size="large"></Icon>
+        Spoiler Book: 
+    
+
+        {bookData && <p><b>{title + " - " + primaryAuthor}</b></p>}
+        {/*<img id="botm-cover" src={coverLink && `${coverLink}`}></img>*/}
     </div>
+    
   );
 }
 
