@@ -21,7 +21,7 @@ function Officers() {
       };
       const bio2 = {
         name: "Bijuri Patel",
-        position: "Vice Presdent (Veep)",
+        position: "Vice President (Veep)",
         description: "I'm Bijuri, a senior Information Systems major aiming to be a technical writer. I love indulging in stories, and my favorites include Percy Jackson and the Olympians; Six of Crows and Crooked Kingdom; and Red, White & Royal Blue. Please let me know what your favorite books are!",
         imageSrc: bijuriImage
       };
