@@ -26,6 +26,7 @@ function BookRecs() {
      Any code that access data will run once when the page loads and then again when the
      API returns.
   */
+  console.log(data);
 
   let tableContents = [];
   for (var bookIndex in data) {
@@ -139,7 +140,9 @@ function BookRecs() {
           */}
         </Modal>
         {!tableContents || tableContents.length === 0 ? (
-          <p>It seems there aren't any book recommendations yet...</p>
+          <center>
+            <p>It seems there aren't any book recommendations yet...</p>
+          </center>
         ) : (
           <table className="ui celled striped table">
             <thead>

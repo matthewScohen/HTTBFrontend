@@ -1,0 +1,18 @@
+#footer {
+  height: 10vh;
+}
+
+#footer-top {
+  height: 20%;
+  background-color: #2b568a;
+}
+
+#footer-bottom {
+  height: 90%;
+  width: 100vw;
+  background-color: #072743;
+  color: rgb(181, 197, 222);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

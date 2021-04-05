@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
+
+import EventCalendar from './EventCalendar'
 
 import ".././App.css";
 import '../css/Calendar.css';
-import EventCalendar from './EventCalendar'
-
 
 
 function Calendar() {
@@ -18,11 +18,10 @@ function Calendar() {
       <div id="calendar-holder">
         <EventCalendar />
       </div>
-        
+
     </div>
   );
 }
 
-export default Calendar
+export default Calendar;
 export { Calendar };
-

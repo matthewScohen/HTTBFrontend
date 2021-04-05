@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { Card, Image } from "semantic-ui-react";
 import OpenLibraryService from "../services/openlibrary.service";
-import "../css/Landing.css";
-import { Icon } from "semantic-ui-react";
 
-function BookOfTheMonth({ props }) {
+import ".././App.css";
+
+function VoteBookCard({ props }) {
   const ISBN = props.ISBN;
   const [bookData, setData] = useState({});
 
@@ -15,7 +16,6 @@ function BookOfTheMonth({ props }) {
       //object to reference the isbn named object without having to hardcode the isbn.
       for (var data2 in book.data) {
         var data = book.data[data2];
-        console.log(data.authors[0].name);
       }
       setData(data);
     }
@@ -27,31 +27,28 @@ function BookOfTheMonth({ props }) {
   var primaryAuthor = "";
   var title = "";
 
-  if(bookData) {
-    if (bookData.cover != undefined) {
+  if (bookData) {
+    if (bookData.cover) {
       coverLink = bookData.cover.large;
     }
-    if (bookData.authors != undefined) {
+    if (bookData.authors) {
       primaryAuthor = bookData.authors[0].name;
     }
-    if (bookData.title != undefined) {
+    if (bookData.title) {
       title = bookData.title;
     }
   }
 
-  //Return component
   return (
-    <div id="spoiler-book">
-      <Icon name="book" size="large"></Icon>
-        Spoiler Book: 
-    
-
-        {bookData && <p><b>{title + " - " + primaryAuthor}</b></p>}
-        {/*<img id="botm-cover" src={coverLink && `${coverLink}`}></img>*/}
-    </div>
-    
+    <Card>
+      <Card.Content>
+        <Image id="botm-cover" src={coverLink && `${coverLink}`}></Image>
+        <Card.Header>{title}</Card.Header>
+        <Card.Meta>{primaryAuthor}</Card.Meta>
+      </Card.Content>
+    </Card>
   );
 }
 
-export default BookOfTheMonth;
-export { BookOfTheMonth };
+export default VoteBookCard;
+export { VoteBookCard };
