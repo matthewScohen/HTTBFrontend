@@ -1,12 +1,11 @@
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 
-import React, { Component } from "react";
+import React from "react";
 
 import "../css/Calendar.css";
 
-export default class EventCalendar extends Component {
-  render() {
+function EventCalendar() {
     return (
       <FullCalendar
         id="calender"
@@ -25,4 +24,6 @@ export default class EventCalendar extends Component {
       />
     );
   }
-}
+
+  export default EventCalendar;
+  export { EventCalendar };
