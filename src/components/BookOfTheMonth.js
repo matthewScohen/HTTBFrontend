@@ -15,7 +15,6 @@ function BookOfTheMonth({ props }) {
       //object to reference the isbn named object without having to hardcode the isbn.
       for (var data2 in book.data) {
         var data = book.data[data2];
-        console.log(data.authors[0].name);
       }
       setData(data);
     }
@@ -43,13 +42,13 @@ function BookOfTheMonth({ props }) {
   return (
     <div id="spoiler-book">
       <Icon name="book" size="large"></Icon>
-        Spoiler Book: 
-    
+        Spoiler Book:
+
 
         {bookData && <p><b>{title + " - " + primaryAuthor}</b></p>}
         {/*<img id="botm-cover" src={coverLink && `${coverLink}`}></img>*/}
     </div>
-    
+
   );
 }
 
