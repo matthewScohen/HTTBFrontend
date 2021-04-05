@@ -8,8 +8,8 @@ import "./App.css";
 
 import Home from "./components/Home";
 import About from "./components/About";
-import Calendar from "./components/Calendar";
 import BookRecs from "./components/BookRecs";
+import Voting from "./components/Voting";
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
       <Switch>
         <Route path="/" component={Home} exact />
         <Route path="/About" component={About} exact />
-        <Route path="/Calendar" component={Calendar} exact />
+        <Route path="/Voting" component={Voting} exact />
         <Route path="/BookRecs" component={BookRecs} exact />
       </Switch>
     </div>

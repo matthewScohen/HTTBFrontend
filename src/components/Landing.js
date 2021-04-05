@@ -11,7 +11,7 @@ import VoteBookService from "../services/voteBook.service"
 function Landing() {
   return (
     <div id="landing-container">
-      
+
       <div id="landing-nav">
       <a className="nav-button" href="github.com">About</a>
       <a className="nav-button" href="github.com">Calendar</a>
@@ -36,8 +36,6 @@ function Landing() {
       </svg>
       
       <div id="landing-content">
-        
-      
         <div id="landing-welcome">
           <div id="welcome-text">
             <h5>WELCOME TO</h5>
@@ -55,7 +53,6 @@ function Landing() {
            <AwesomeButton type="primary" className="button"><Icon name='discord' size="large"/> Discord</AwesomeButton>
            <AwesomeButton type="primary" className="button"><Icon name='group' size="large"/>GroupMe</AwesomeButton>
           </div>
-          
         </div>
         
         <div id="landing-botm">
