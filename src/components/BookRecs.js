@@ -120,24 +120,9 @@ function BookRecs() {
                 placeholder='ISBN'
                 onChange={e => setISBN(e.target.value)}
               />
-              {/*
-              <Form.Input
-                fluid
-                label='Genres (separate with commas)'
-                value={values.genres}
-                placeholder='Genres'
-              />
-              */}
               <Form.Button color="blue" onClick={handleSubmit}>Submit</Form.Button>
             </Form>
           </Modal.Content>
-          {/*
-          <Modal.Actions>
-            <Button color='green' onClick={() => setOpen(false)}>
-              <Icon name='checkmark' /> Add
-            </Button>
-          </Modal.Actions>
-          */}
         </Modal>
         {!tableContents || tableContents.length === 0 ? (
           <center>
