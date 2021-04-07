@@ -23,9 +23,10 @@ class CalendarService {
 
   deleteEvent(title, password) {
     let data = {
+      title: title,
       password: password
     }
-    return calendarAxiosInstance.delete(`/${title}`, { data: data});
+    return calendarAxiosInstance.delete("/", { data: data});
   }
 }
 
