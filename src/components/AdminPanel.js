@@ -13,14 +13,30 @@ function AdminPanel() {
   const [deleteEventTitle, setDeleteEventTitle] = useState("");
   const [addEventDate, setAddEventDate] = useState("");
 
-  function handleAddEvent() {
-  var password = prompt("Please enter the admin password", "Password");
-  CalendarService.addEvent(addEventTitle, addEventDate, password);
+  async function handleAddEvent() {
+    var password = prompt("Please enter the admin password", "Password");
+    const response = await (CalendarService.addEvent(addEventTitle, addEventDate, password));
+    console.log(response);
+    if(response.data.title !== undefined) {
+      alert("Event " + response.data.title + " successfully added to the calendar!");
+    }
+    else if(response.data.message !== undefined) {
+      alert(response.data.message);
+    }
+    else {
+      alert("An error occured while adding this event");
+    }
+    //Clear form fields after submission
+    setAddEventTitle("");
+    setAddEventDate("");
   }
 
-  function handleDeleteEvent() {
+  async function handleDeleteEvent() {
     var password = prompt("Please enter the admin password", "Password");
-    CalendarService.deleteEvent(deleteEventTitle, password);
+    const response = await (CalendarService.deleteEvent(deleteEventTitle, password));
+    alert(response.data.message);
+    //Clear form fields after submission
+    setDeleteEventTitle("");
   }
 
   return (
