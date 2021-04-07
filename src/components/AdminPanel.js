@@ -9,17 +9,18 @@ import { sideMenu as Menu } from "./sideMenu.js";
 
 
 function AdminPanel() {
-  const [addEventTitle, setAddEventTitle] = useState("Title");
-  const [addEventDate, setAddEventDate] = useState("YYYY-MM-DD");
+  const [addEventTitle, setAddEventTitle] = useState("");
+  const [deleteEventTitle, setDeleteEventTitle] = useState("");
+  const [addEventDate, setAddEventDate] = useState("");
 
   function handleAddEvent() {
   var password = prompt("Please enter the admin password", "Password");
-  console.log(addEventTitle, addEventDate, password);
-  
+  CalendarService.addEvent(addEventTitle, addEventDate, password);
   }
 
   function handleDeleteEvent() {
-    console.log("delete event");
+    var password = prompt("Please enter the admin password", "Password");
+    CalendarService.deleteEvent(deleteEventTitle, password);
   }
 
   return (
@@ -55,7 +56,13 @@ function AdminPanel() {
       <h2>Delete event from calendar</h2>
       <Form onSubmit={handleDeleteEvent}>
         <Form.Group widths='equal'>
-          <Form.Input label="Event Title" placeholder="GBM #1" />
+          <Form.Input
+                label="Event Title"
+                placeholder='GBM #1'
+                name='title'
+                value={deleteEventTitle}
+                onChange={(e, { name, value }) => setDeleteEventTitle(value)}
+          />
           <Form.Button content='Delete Event' />
         </Form.Group>
       </Form>
