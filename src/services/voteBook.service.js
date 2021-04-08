@@ -31,8 +31,12 @@ class VoteBookService {
     return voteBookAxiosInstance.put(`/${isbn}`, data);
   }
 
-  deleteVoteBook(isbn) {
-    return voteBookAxiosInstance.delete(`/${isbn}`);
+  deleteVoteBook(isbn, password) {
+    let data = {
+      isbn: isbn,
+      password: password
+    }
+    return voteBookAxiosInstance.delete("/", { data: data});
   }
 }
 
