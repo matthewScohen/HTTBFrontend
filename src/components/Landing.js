@@ -13,9 +13,9 @@ function Landing() {
     <div id="landing-container">
 
       <div id="landing-nav">
-      <a className="nav-button" href="github.com">About</a>
-      <a className="nav-button" href="github.com">Calendar</a>
-      <a className="nav-button" href="github.com">Officers</a>
+      <a className="nav-button" href="#landing-content"><h6>ABOUT</h6></a>
+      <a className="nav-button" href="#cal-outer-container"><h6>CALENDAR</h6></a>
+      <a className="nav-button" href="#officer-page"><h6>OFFICERS</h6></a>
       <BookOfTheMonth
             props={{
               ISBN: "9781847941831"
@@ -50,8 +50,8 @@ function Landing() {
             </div>
           </div>
           <div id="welcome-buttons">
-           <AwesomeButton type="primary" className="button"><Icon name='discord' size="large"/> Discord</AwesomeButton>
-           <AwesomeButton type="primary" className="button"><Icon name='group' size="large"/>GroupMe</AwesomeButton>
+           <AwesomeButton type="primary" className="button" href="https://discord.gg/QAc8c3S"><Icon name='discord' size="large"/> Discord</AwesomeButton>
+           <AwesomeButton type="primary" className="button" href="https://groupme.com/join_group/61080275/ExWii84e"><Icon name='group' size="large"/>GroupMe</AwesomeButton>
           </div>
         </div>
         
