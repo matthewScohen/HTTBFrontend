@@ -44,8 +44,8 @@ function AdminPanel() {
   }
 
   async function handleAddVoteBook() {
-    console.log(voteBookTitle, voteBookIsbn);
-    const response = await (VoteBookService.createVoteBook(voteBookTitle, voteBookIsbn, false));
+    var password = prompt("Please enter the admin password", "Password");
+    const response = await (VoteBookService.createVoteBook(voteBookTitle, voteBookIsbn, false, password));
     if(response.data.isbn == voteBookIsbn)
       alert("Book added to poll successfully!");
     else
@@ -53,8 +53,8 @@ function AdminPanel() {
   }
 
   async function handleRemoveVoteBook() {
-    console.log(voteBookTitle, voteBookIsbn);
-    const response = await (VoteBookService.deleteVoteBook(voteBookIsbn));
+    var password = prompt("Please enter the admin password", "Password");
+    const response = await (VoteBookService.deleteVoteBook(voteBookIsbn, password));
     alert(response.data.message);
   }
 
