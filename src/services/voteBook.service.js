@@ -13,9 +13,10 @@ class VoteBookService {
     return voteBookAxiosInstance.get("/");
   }
 
-  createVoteBook(title, isbn, isSpoilerBook) {
+  createVoteBook(title, isbn, isSpoilerBook, password) {
     let voteCount = 0;
     let data = {
+      password: password,
       title: title,
       isbn: isbn,
       isSpoilerBook: isSpoilerBook,
