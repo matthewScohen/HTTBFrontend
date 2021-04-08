@@ -31,6 +31,8 @@ function Voting() {
     var currentBook = selectedBook.value;
     console.log(selectedBook.value.isbn, selectedBook.value.voteCount+1);
     VoteBookService.updateVoteBookCount(currentBook.isbn, currentBook.voteCount+1);
+    //Refresh the page to update the vote count
+    window.location.reload();
   }
 
   function createVoteCardFormField(book) {
