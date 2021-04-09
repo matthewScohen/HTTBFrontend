@@ -36,6 +36,7 @@ function BookRecs() {
         <tr key={book.title}>
           <td>{book.title}</td>
           <td>{book.author}</td>
+          <td>{book.notes}</td>
         </tr>
       ];
       tableContents.push(row);
@@ -74,15 +75,18 @@ function BookRecs() {
   }
 
   const [isbn, setISBN] = useState();
+  const [notes, setNotes] = useState();
   const handleSubmit= (e) => {
     e.preventDefault();
     const newBook = {
       title: title,
       author: primaryAuthor,
-      isbn: isbn
+      isbn: isbn,
+      notes: notes
     }
     BookDataService.create(newBook);
     setISBN('');
+    setNotes('');
     setOpen(false);
   }
 
@@ -100,11 +104,11 @@ function BookRecs() {
           closeIcon
           open={open}
           trigger={
-            <Button basic color='blue' icon labelPosition='left'>
+            <Button basic color='blue' icon labelPosition='left' floated='right'>
               <Icon name='add square'/>
               Add Book Rec
             </Button>}
-          size='mini'
+          size='tiny'
           onClose={() => setOpen(false)}
           onOpen={() => setOpen(true)}
         >
@@ -120,6 +124,15 @@ function BookRecs() {
                 placeholder='ISBN'
                 onChange={e => setISBN(e.target.value)}
               />
+              <Form.TextArea
+                fluid
+                type='text'
+                name='notes'
+                value={notes}
+                label='Notes'
+                placeholder='Notes'
+                onChange={e => setNotes(e.target.value)}
+              />
               <Form.Button color="blue" onClick={handleSubmit}>Submit</Form.Button>
             </Form>
           </Modal.Content>
@@ -134,6 +147,7 @@ function BookRecs() {
               <tr>
                 <th>TITLE</th>
                 <th>AUTHOR</th>
+                <th>NOTES</th>
               </tr>
             </thead>
             <tbody>{tableContents}</tbody>
