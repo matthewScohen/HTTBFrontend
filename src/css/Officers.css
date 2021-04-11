@@ -17,7 +17,7 @@
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-evenly;
-
+  max-width: 1000px;
   max-height: 450px;
 }
 
@@ -33,6 +33,7 @@
   width: 90%;
   height: 100%;
   border: 10px solid white;
+  
 }
 
 #officers-text-container {
@@ -46,7 +47,7 @@
   }
   #officer-page {
     background-color: #cee2f9;
-    height: 100vh;
+    height: 155vh;
   }
   #officers-text-container {
     max-width: 450px;
