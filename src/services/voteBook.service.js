@@ -25,11 +25,13 @@ class VoteBookService {
     return voteBookAxiosInstance.post("/", data);
   }
 
-  updateVoteBookCount(isbn, newCount) {
+  updateVoteBookCount(isbn, newCount, password) {
     let data = {
-      voteCount: newCount
+      isbn: isbn,
+      voteCount: newCount,
+      password: password
     }
-    return voteBookAxiosInstance.put(`/${isbn}`, data);
+    return voteBookAxiosInstance.put("/", data);
   }
 
   deleteVoteBook(isbn, password) {
