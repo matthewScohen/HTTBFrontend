@@ -4,6 +4,7 @@ import ".././App.css";
 import '../css/AdminPanel.css';
 import CalendarService from "../services/calendar.service";
 import VoteBookService from "../services/voteBook.service";
+import BookDataService from "../services/book.service";
 
 import { sideMenu as Menu } from "./sideMenu.js";
 
@@ -16,6 +17,8 @@ function AdminPanel() {
 
   const [voteBookTitle, setVoteBookTitle] = useState("");
   const [voteBookIsbn, setVoteBookIsbn] = useState("");
+
+  const [bookRecIsbn, setBookRecIsbn] = useState("");
 
   async function handleAddEvent() {
     var password = prompt("Please enter the admin password", "Password");
@@ -55,6 +58,12 @@ function AdminPanel() {
   async function handleRemoveVoteBook() {
     var password = prompt("Please enter the admin password", "Password");
     const response = await (VoteBookService.deleteVoteBook(voteBookIsbn, password));
+    alert(response.data.message);
+  }
+
+  async function handleDeleteBookRec() {
+    var password = prompt("Please enter the admin password", "Password");
+    const response = await (BookDataService.deleteVoteBook(voteBookIsbn, password));
     alert(response.data.message);
   }
 

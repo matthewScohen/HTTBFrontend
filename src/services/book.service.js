@@ -17,8 +17,12 @@ class BookDataService {
     return http.put(`/books/${id}`, data);
   }
 
-  delete(id) {
-    return http.delete(`/books/${id}`);
+  delete(isbn, password) {
+    let data = {
+      isbn: isbn,
+      password: password
+    }
+    return http.delete("/books", { data: data});
   }
 
   deleteAll() {
