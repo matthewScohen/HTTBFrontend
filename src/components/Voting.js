@@ -74,7 +74,9 @@ function Voting() {
       for(var bookIndex in data)
       {
         console.log(data[bookIndex].title);
-        bookList.push(data[bookIndex]);
+        if(!data[bookIndex].isSpoilerBook) {
+          bookList.push(data[bookIndex]);
+        }
       }
 
   }
