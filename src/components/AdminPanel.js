@@ -63,7 +63,7 @@ function AdminPanel() {
 
   async function handleDeleteBookRec() {
     var password = prompt("Please enter the admin password", "Password");
-    const response = await (BookDataService.deleteVoteBook(voteBookIsbn, password));
+    const response = await (BookDataService.delete(bookRecIsbn, password));
     alert(response.data.message);
   }
 
@@ -130,6 +130,20 @@ function AdminPanel() {
             />
             <Form.Button onClick={handleAddVoteBook} content="Add Book" />
             <Form.Button onClick={handleRemoveVoteBook} content="Remove Book" />
+          </Form.Group>
+        </Form>
+
+        <h2> Delete Book From Book Recommendations </h2>
+        <Form onSubmit={handleDeleteBookRec}>
+          <Form.Group widths='equal'>
+            <Form.Input
+                  label="Book ISBN"
+                  placeholder='1234567890123'
+                  name='isbn'
+                  value={bookRecIsbn}
+                  onChange={(e, { name, value }) => setBookRecIsbn(value)}
+            />
+            <Form.Button content='Delete Event' />
           </Form.Group>
         </Form>
       </div>
