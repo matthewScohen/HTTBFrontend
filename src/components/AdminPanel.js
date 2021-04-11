@@ -20,6 +20,9 @@ function AdminPanel() {
 
   const [bookRecIsbn, setBookRecIsbn] = useState("");
 
+  const [spoilerBookIsbn, setSpoilerBookIsbn] = useState("");
+  const [spoilerBookTitle, setSpoilerBookTitle] = useState("");
+
   async function handleAddEvent() {
     var password = prompt("Please enter the admin password", "Password");
     const response = await (CalendarService.addEvent(addEventTitle, addEventDate, password));
@@ -64,6 +67,12 @@ function AdminPanel() {
   async function handleDeleteBookRec() {
     var password = prompt("Please enter the admin password", "Password");
     const response = await (BookDataService.delete(bookRecIsbn, password));
+    alert(response.data.message);
+  }
+
+  async function handleUpdateSpoilerBook() {
+    var password = prompt("Please enter the admin password", "Password");
+    const response = await (VoteBookService.updateSpoilerBook(spoilerBookIsbn, spoilerBookTitle, password));
     alert(response.data.message);
   }
 
@@ -146,6 +155,28 @@ function AdminPanel() {
             <Form.Button content='Delete Event' />
           </Form.Group>
         </Form>
+
+        <h2> Update Spoiler Book </h2>
+        <Form onSubmit={handleUpdateSpoilerBook}>
+          <Form.Group widths='equal'>
+            <Form.Input
+                  label="Title"
+                  placeholder='The Name of The Wind'
+                  name='title'
+                  value={spoilerBookTitle}
+                  onChange={(e, { name, value }) => setSpoilerBookTitle(value)}
+            />
+            <Form.Input
+                  label="ISBN"
+                  placeholder="1234567890123"
+                  name='isbn'
+                  value={spoilerBookIsbn}
+                  onChange={(e, { name, value }) => setSpoilerBookIsbn(value)}
+            />
+            <Form.Button content='Update' />
+          </Form.Group>
+        </Form>
+
       </div>
     </div>
   );

@@ -34,6 +34,15 @@ class VoteBookService {
     return voteBookAxiosInstance.put("/", data);
   }
 
+  updateSpoilerBook(isbn, title, password) {
+    let data = {
+      isbn: isbn,
+      title: title,
+      password: password
+    }
+    return voteBookAxiosInstance.put("/spoilerBook", data);
+  }
+
   deleteVoteBook(isbn, password) {
     let data = {
       isbn: isbn,
