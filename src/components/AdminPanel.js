@@ -73,6 +73,8 @@ function AdminPanel() {
   async function handleUpdateSpoilerBook() {
     var password = prompt("Please enter the admin password", "Password");
     const response = await (VoteBookService.updateSpoilerBook(spoilerBookIsbn, spoilerBookTitle, password));
+    setSpoilerBookIsbn("");
+    setSpoilerBookTitle("");
     alert(response.data.message);
   }
 
