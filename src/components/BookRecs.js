@@ -84,7 +84,7 @@ function BookRecs() {
       title: title,
       author: primaryAuthor,
       isbn: isbn,
-      notes: notes
+      notes: notes,
       password: password
     }
     BookDataService.create(newBook);
