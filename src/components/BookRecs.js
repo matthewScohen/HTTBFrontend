@@ -78,11 +78,14 @@ function BookRecs() {
   const [notes, setNotes] = useState();
   const handleSubmit= (e) => {
     e.preventDefault();
+
+    var password = prompt("Enter the secret member voting password! (Contact the club officers to get this password)");
     const newBook = {
       title: title,
       author: primaryAuthor,
       isbn: isbn,
       notes: notes
+      password: password
     }
     BookDataService.create(newBook);
     setISBN('');

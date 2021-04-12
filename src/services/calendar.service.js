@@ -12,16 +12,21 @@ class CalendarService {
     return calendarAxiosInstance.get("/");
   }
 
-  addEvent(title, date) { //Date format is YYYY-MM-DD
+  addEvent(title, date, password) { //Date format is YYYY-MM-DD
     let data = {
       title: title,
-      date: date
+      date: date,
+      password: password
     }
     return calendarAxiosInstance.post("/", data);
   }
 
-  deleteEvent(title) {
-    return calendarAxiosInstance.delete(`/${title}`);
+  deleteEvent(title, password) {
+    let data = {
+      title: title,
+      password: password
+    }
+    return calendarAxiosInstance.delete("/", { data: data});
   }
 }
 

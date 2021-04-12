@@ -10,6 +10,7 @@ import Home from "./components/Home";
 import About from "./components/About";
 import BookRecs from "./components/BookRecs";
 import Voting from "./components/Voting";
+import AdminPanel from "./components/AdminPanel";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/About" component={About} exact />
         <Route path="/Voting" component={Voting} exact />
         <Route path="/BookRecs" component={BookRecs} exact />
+        <Route path="/AdminPanel" component={AdminPanel} exact />
       </Switch>
     </div>
   );
