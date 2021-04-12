@@ -13,9 +13,10 @@ class VoteBookService {
     return voteBookAxiosInstance.get("/");
   }
 
-  createVoteBook(title, isbn, isSpoilerBook) {
+  createVoteBook(title, isbn, isSpoilerBook, password) {
     let voteCount = 0;
     let data = {
+      password: password,
       title: title,
       isbn: isbn,
       isSpoilerBook: isSpoilerBook,
@@ -24,15 +25,30 @@ class VoteBookService {
     return voteBookAxiosInstance.post("/", data);
   }
 
-  updateVoteBookCount(isbn, newCount) {
+  updateVoteBookCount(isbn, newCount, password) {
     let data = {
-      voteCount: newCount
+      isbn: isbn,
+      voteCount: newCount,
+      password: password
     }
-    return voteBookAxiosInstance.put(`/${isbn}`, data);
+    return voteBookAxiosInstance.put("/", data);
   }
 
-  deleteVoteBook(isbn) {
-    return voteBookAxiosInstance.delete(`/${isbn}`);
+  updateSpoilerBook(isbn, title, password) {
+    let data = {
+      isbn: isbn,
+      title: title,
+      password: password
+    }
+    return voteBookAxiosInstance.put("/spoilerBook", data);
+  }
+
+  deleteVoteBook(isbn, password) {
+    let data = {
+      isbn: isbn,
+      password: password
+    }
+    return voteBookAxiosInstance.delete("/", { data: data});
   }
 }
 

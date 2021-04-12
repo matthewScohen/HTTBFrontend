@@ -28,9 +28,17 @@ function Voting() {
   const handleChange = (event, {value}) => setValue({ value });
 
   function onSubmit() {
-    var currentBook = selectedBook.value;
-    console.log(selectedBook.value.isbn, selectedBook.value.voteCount+1);
-    VoteBookService.updateVoteBookCount(currentBook.isbn, currentBook.voteCount+1);
+    if(selectedBook != undefined) {
+      var currentBook = selectedBook.value;
+      console.log(selectedBook.value.isbn, selectedBook.value.voteCount+1);
+      var password = prompt("Enter the secret member voting password! (Contact the club officers to get this password)");
+      VoteBookService.updateVoteBookCount(currentBook.isbn, currentBook.voteCount+1, password);
+      //Refresh the page to update the vote count
+      window.location.reload();
+    }
+    else {
+      alert("No book selected!");
+    }
   }
 
   function createVoteCardFormField(book) {
@@ -66,7 +74,9 @@ function Voting() {
       for(var bookIndex in data)
       {
         console.log(data[bookIndex].title);
-        bookList.push(data[bookIndex]);
+        if(!data[bookIndex].isSpoilerBook) {
+          bookList.push(data[bookIndex]);
+        }
       }
 
   }
