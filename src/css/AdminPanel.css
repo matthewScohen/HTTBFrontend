@@ -1,0 +1,45 @@
+#forms-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    
+    width: 100vw;
+    height: auto;
+}
+
+#forms-container .form {
+    width: 80vw;
+    margin: 20px 0px 30px 20px;
+    
+}
+
+#forms-container .table {
+    width: 80vw;
+    margin: 20px;
+    
+}
+
+.separate-form {
+    padding: 20px;
+    
+}
+
+.separate-form h2 {
+    text-align: center;
+}
+
+#formsubmitbutton {
+    position: absolute;
+    bottom: 0px;
+}
+
+#admin-outer {
+    background-color: rgb(187, 222, 250);
+}
+
+@media only screen and (max-width: 767px) {
+    #formsubmitbutton {
+        position: relative;
+    }
+}
