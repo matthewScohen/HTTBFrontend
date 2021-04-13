@@ -88,7 +88,7 @@ function BookRecs() {
       notes: notes,
       password: password
     }
-    BookDataService.create(newBook)
+    BookDataService.create(newBook);
     setISBN('');
     setTriggerWarnings('');
     setNotes('');
