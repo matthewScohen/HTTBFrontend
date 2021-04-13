@@ -1,3 +1,9 @@
+#content {
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .modal {
     height: auto;
     top: auto;
@@ -5,3 +11,15 @@
     bottom: auto;
     right: auto;
 }
+
+#btn {
+  margin: 10px 0;
+  background-color: #72a9cf;
+}
+
+.table {
+   width:70%;
+   margin-left:15%;
+   margin-right:15%;
+   overflow: scroll;
+ }
