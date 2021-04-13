@@ -80,6 +80,9 @@ function AdminPanel() {
 
   const [eventData, setEventData] = useState({});
   const [voteBookData, setVoteBookData] = useState({});
+  const [bookRecData, setBookRecData] = useState({});
+  const [spoilerBookData, setSpoilerBookData] = useState({});
+
   useEffect(() => {
     async function fetchCalendarData() {
       /* Get data for events */
@@ -100,19 +103,39 @@ function AdminPanel() {
       const voteBookResult = await VoteBookService.getVoteBooks();
       var voteBookDataList = [];
       for(var index in voteBookResult.data) {
+        var voteBookInfo = {
+          title: voteBookResult.data[index].title,
+          isbn: voteBookResult.data[index].isbn
+        }
         if(!voteBookResult.data[index].isSpoilerBook) {
-          var voteBookInfo = {
-            title: voteBookResult.data[index].title,
-            isbn: voteBookResult.data[index].isbn
-          }
           voteBookDataList.push(voteBookInfo);
+        } else {
+          /*** The spoiler book data is set here ***/
+          setSpoilerBookData(voteBookInfo);
         }
       }
       setVoteBookData(voteBookDataList);
     }
+
+    async function fetchBookRecData() {
+      const bookRecResult = await BookDataService.getAll();
+      var bookRecDataList = [];
+      for(var index in bookRecResult.data) {
+        var bookRecInfo = {
+          title: bookRecResult.data[index].title,
+          isbn: bookRecResult.data[index].isbn
+        }
+        bookRecDataList.push(bookRecInfo);
+      }
+      setBookRecData(bookRecDataList);
+    }
+
     fetchCalendarData();
     fetchVoteBookData();
+    fetchBookRecData();
   }, []);
+
+  console.log(spoilerBookData);
 
   function renderEventTableData() {
     let eventTableRows = [];
@@ -127,6 +150,21 @@ function AdminPanel() {
     }
     return eventTableRows;
   }
+
+  function renderVoteTableData() {
+    let voteTableRows = [];
+    for(var index in voteBookData) {
+      let row = [
+        <Table.Row>
+          <Table.Cell>{voteBookData[index].title}</Table.Cell>
+          <Table.Cell>{voteBookData[index].isbn}</Table.Cell>
+        </Table.Row>
+      ];
+      voteTableRows.push(row);
+    }
+    return voteTableRows;
+  }
+
   return (
     //The outer-container contains everything including the menu
     //The page wrap must contain everything on the page except the menu
@@ -242,20 +280,7 @@ function AdminPanel() {
               </Table.Row>
             </Table.Header>
             <Table.Body>
-            <Table.Row>
-              {/*Adding an <a> in a selectable column, maybe this can autofill the
-              form components with the selected option?*/}
-              <Table.Cell selectable><a href="#">Book Title</a></Table.Cell>
-              <Table.Cell>1234567890</Table.Cell>
-            </Table.Row>
-            <Table.Row>
-            <Table.Cell selectable><a href="#">Book Title</a></Table.Cell>
-              <Table.Cell>1234567890</Table.Cell>
-            </Table.Row>
-            <Table.Row>
-            <Table.Cell selectable><a href="#">Book Title</a></Table.Cell>
-              <Table.Cell>1234567890</Table.Cell>
-            </Table.Row>
+            {renderVoteTableData()}
 
           </Table.Body>
           </Table>
