@@ -26,7 +26,6 @@ function AdminPanel() {
   async function handleAddEvent() {
     var password = prompt("Please enter the admin password", "Password");
     const response = await (CalendarService.addEvent(addEventTitle, addEventDate, password));
-    console.log(response);
     if(response.data.title !== undefined) {
       alert("Event " + response.data.title + " successfully added to the calendar!");
     }
@@ -78,22 +77,41 @@ function AdminPanel() {
     alert(response.data.message);
   }
 
-  /* Get data for events */
+
   const [eventData, setEventData] = useState({});
+  const [voteBookData, setVoteBookData] = useState({});
   useEffect(() => {
-    async function fetchData() {
-      const result = await CalendarService.getEvents();
-      var data = [];
-      for(var index in result.data) {
+    async function fetchCalendarData() {
+      /* Get data for events */
+      const calendarResult = await CalendarService.getEvents();
+      var calendarData = [];
+      for(var index in calendarResult.data) {
         var eventInfo = {
-          title: result.data[index].title,
-          date: result.data[index].date
+          title: calendarResult.data[index].title,
+          date: calendarResult.data[index].date
         }
-        data.push(eventInfo);
+        calendarData.push(eventInfo);
       }
-      setEventData(data);
+      setEventData(calendarData);
     }
-    fetchData();
+
+    async function fetchVoteBookData() {
+      /* Get data on vote books */
+      const voteBookResult = await VoteBookService.getVoteBooks();
+      var voteBookDataList = [];
+      for(var index in voteBookResult.data) {
+        if(!voteBookResult.data[index].isSpoilerBook) {
+          var voteBookInfo = {
+            title: voteBookResult.data[index].title,
+            isbn: voteBookResult.data[index].isbn
+          }
+          voteBookDataList.push(voteBookInfo);
+        }
+      }
+      setVoteBookData(voteBookDataList);
+    }
+    fetchCalendarData();
+    fetchVoteBookData();
   }, []);
 
   function renderEventTableData() {
@@ -109,7 +127,6 @@ function AdminPanel() {
     }
     return eventTableRows;
   }
-  console.log(eventData);
   return (
     //The outer-container contains everything including the menu
     //The page wrap must contain everything on the page except the menu
