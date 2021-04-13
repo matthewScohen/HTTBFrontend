@@ -165,6 +165,30 @@ function AdminPanel() {
     return voteTableRows;
   }
 
+  function renderBookRecTableData() {
+    let bookRecTableRows = [];
+    for(var index in bookRecData) {
+      let row = [
+        <Table.Row>
+          <Table.Cell>{bookRecData[index].title}</Table.Cell>
+          <Table.Cell>{bookRecData[index].isbn}</Table.Cell>
+        </Table.Row>
+      ];
+      bookRecTableRows.push(row);
+    }
+    return bookRecTableRows;
+  }
+
+  function renderSpoilerBookData() {
+    let row = [
+      <Table.Row>
+        <Table.Cell>{spoilerBookData.title}</Table.Cell>
+        <Table.Cell>{spoilerBookData.isbn}</Table.Cell>
+      </Table.Row>
+    ]
+    return row;
+  }
+
   return (
     //The outer-container contains everything including the menu
     //The page wrap must contain everything on the page except the menu
@@ -300,7 +324,7 @@ function AdminPanel() {
                   value={bookRecIsbn}
                   onChange={(e, { name, value }) => setBookRecIsbn(value)}
             />
-            <Form.Button id="formsubmitbutton" content='Delete Event' />
+            <Form.Button id="formsubmitbutton" content='Remove Book' />
           </Form.Group>
         </Form>
         <Table unstackable selectable striped>
@@ -311,20 +335,7 @@ function AdminPanel() {
               </Table.Row>
             </Table.Header>
             <Table.Body>
-            <Table.Row>
-              {/*Adding an <a> in a selectable column, maybe this can autofill the
-              form components with the selected option?*/}
-              <Table.Cell selectable><a href="#">Book Title</a></Table.Cell>
-              <Table.Cell>1234567890</Table.Cell>
-            </Table.Row>
-            <Table.Row>
-            <Table.Cell selectable><a href="#">Book Title</a></Table.Cell>
-              <Table.Cell>1234567890</Table.Cell>
-            </Table.Row>
-            <Table.Row>
-            <Table.Cell selectable><a href="#">Book Title</a></Table.Cell>
-              <Table.Cell>1234567890</Table.Cell>
-            </Table.Row>
+            {renderBookRecTableData()}
 
           </Table.Body>
           </Table>
@@ -363,12 +374,7 @@ function AdminPanel() {
               </Table.Row>
             </Table.Header>
             <Table.Body>
-            <Table.Row>
-              {/*Adding an <a> in a selectable column, maybe this can autofill the
-              form components with the selected option?*/}
-              <Table.Cell selectable><a href="#">Book Title</a></Table.Cell>
-              <Table.Cell>1234567890</Table.Cell>
-            </Table.Row>
+            {renderSpoilerBookData()}
 
           </Table.Body>
           </Table>
