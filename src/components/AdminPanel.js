@@ -78,6 +78,38 @@ function AdminPanel() {
     alert(response.data.message);
   }
 
+  /* Get data for events */
+  const [eventData, setEventData] = useState({});
+  useEffect(() => {
+    async function fetchData() {
+      const result = await CalendarService.getEvents();
+      var data = [];
+      for(var index in result.data) {
+        var eventInfo = {
+          title: result.data[index].title,
+          date: result.data[index].date
+        }
+        data.push(eventInfo);
+      }
+      setEventData(data);
+    }
+    fetchData();
+  }, []);
+
+  function renderEventTableData() {
+    let eventTableRows = [];
+    for(var index in eventData) {
+      let row = [
+        <Table.Row>
+          <Table.Cell>{eventData[index].title}</Table.Cell>
+          <Table.Cell>{eventData[index].date}</Table.Cell>
+        </Table.Row>
+      ];
+      eventTableRows.push(row);
+    }
+    return eventTableRows;
+  }
+  console.log(eventData);
   return (
     //The outer-container contains everything including the menu
     //The page wrap must contain everything on the page except the menu
@@ -90,7 +122,7 @@ function AdminPanel() {
         </center>
         <div id="forms-container">
           <div id="add-calendar" className="separate-form">
-          
+
           <Segment inverted>
           <h2>Add event to calendar</h2>
           <Form inverted onSubmit={handleAddEvent}>
@@ -122,30 +154,16 @@ function AdminPanel() {
               </Table.Row>
             </Table.Header>
             <Table.Body>
-            <Table.Row>
-              {/*Adding an <a> in a selectable column, maybe this can autofill the
-              form components with the selected option?*/}
-              <Table.Cell selectable><a href="#">GBM 1</a></Table.Cell>
-              <Table.Cell>0000-00-00</Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell>GBM 2</Table.Cell>
-              <Table.Cell>0000-00-00</Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell>GBM 3</Table.Cell>
-              <Table.Cell>0000-00-00</Table.Cell>
-            </Table.Row>
-            
+            {renderEventTableData()}
+
           </Table.Body>
           </Table>
-          
           </Segment>
           </div>
-        
+
 
         <div id="delete-calendar" className="separate-form">
-          
+
           <Segment inverted>
         <h2>Delete event from calendar</h2>
         <Form inverted onSubmit={handleDeleteEvent}>
@@ -168,29 +186,15 @@ function AdminPanel() {
               </Table.Row>
             </Table.Header>
             <Table.Body>
-            <Table.Row>
-              {/*Adding an <a> in a selectable column, maybe this can autofill the
-              form components with the selected option?*/}
-              <Table.Cell selectable><a href="#">GBM 1</a></Table.Cell>
-              <Table.Cell>0000-00-00</Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell>GBM 2</Table.Cell>
-              <Table.Cell>0000-00-00</Table.Cell>
-            </Table.Row>
-            <Table.Row>
-              <Table.Cell>GBM 3</Table.Cell>
-              <Table.Cell>0000-00-00</Table.Cell>
-            </Table.Row>
-            
-          </Table.Body>
+            {renderEventTableData()}
+            </Table.Body>
           </Table>
         </Segment>
         </div>
-        
+
 
         <div id="change-vote" className="separate-form">
-          
+
           <Segment inverted>
         <h2> Add/Remove Book To/From Voting Poll </h2>
         <Form inverted>
@@ -235,14 +239,14 @@ function AdminPanel() {
             <Table.Cell selectable><a href="#">Book Title</a></Table.Cell>
               <Table.Cell>1234567890</Table.Cell>
             </Table.Row>
-            
+
           </Table.Body>
           </Table>
         </Segment>
         </div>
 
         <div id="delete-rec" className="separate-form">
-          
+
           <Segment inverted>
         <h2> Delete Book From Book Recommendations </h2>
         <Form inverted onSubmit={handleDeleteBookRec}>
@@ -279,15 +283,15 @@ function AdminPanel() {
             <Table.Cell selectable><a href="#">Book Title</a></Table.Cell>
               <Table.Cell>1234567890</Table.Cell>
             </Table.Row>
-            
+
           </Table.Body>
           </Table>
         </Segment>
         </div>
 
-        
+
         <div id="update-spoiler" className="separate-form">
-          
+
           <Segment inverted>
         <h2> Update Spoiler Book </h2>
         <Form inverted onSubmit={handleUpdateSpoilerBook}>
@@ -323,7 +327,7 @@ function AdminPanel() {
               <Table.Cell selectable><a href="#">Book Title</a></Table.Cell>
               <Table.Cell>1234567890</Table.Cell>
             </Table.Row>
-            
+
           </Table.Body>
           </Table>
         </Segment>
