@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../css/Landing.css";
 import { Button, Icon } from "semantic-ui-react";
 import { AwesomeButton } from "react-awesome-button";
@@ -6,9 +6,26 @@ import "react-awesome-button/dist/styles.css";
 import BookOfTheMonth from "./BookOfTheMonth.js";
 import wave from '../assets/images/wave.svg';
 import bookDisplay from '../assets/images/11070.png';
-
 import VoteBookService from "../services/voteBook.service"
+
+
 function Landing() {
+
+  const [spoilerISBN, setSpoilerISBN] = useState("9781847941831");
+
+  useEffect(() => {
+    async function fetchData() {
+      const result = await VoteBookService.getVoteBooks();
+      const data = result.data;
+      for(var index in data) {
+        if(data[index].isSpoilerBook) {
+          setSpoilerISBN(data[index].isbn);
+        }
+      }
+    }
+    fetchData();
+  }, []);
+
   return (
     <div id="landing-container">
 
@@ -18,7 +35,7 @@ function Landing() {
       <a className="nav-button" href="#officer-page"><h6>OFFICERS</h6></a>
       <BookOfTheMonth
             props={{
-              ISBN: "9781847941831"
+              ISBN: spoilerISBN
             }}
           />
       </div>
