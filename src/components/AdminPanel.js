@@ -38,6 +38,7 @@ function AdminPanel() {
     //Clear form fields after submission
     setAddEventTitle("");
     setAddEventDate("");
+    window.location.reload();
   }
 
   async function handleDeleteEvent() {
@@ -46,6 +47,7 @@ function AdminPanel() {
     alert(response.data.message);
     //Clear form fields after submission
     setDeleteEventTitle("");
+    window.location.reload();
   }
 
   async function handleAddVoteBook() {
@@ -55,18 +57,21 @@ function AdminPanel() {
       alert("Book added to poll successfully!");
     else
       alert("There was an error adding the book to the poll.");
+    window.location.reload();
   }
 
   async function handleRemoveVoteBook() {
     var password = prompt("Please enter the admin password", "Password");
     const response = await (VoteBookService.deleteVoteBook(voteBookIsbn, password));
     alert(response.data.message);
+    window.location.reload();
   }
 
   async function handleDeleteBookRec() {
     var password = prompt("Please enter the admin password", "Password");
     const response = await (BookDataService.delete(bookRecIsbn, password));
     alert(response.data.message);
+    window.location.reload();
   }
 
   async function handleUpdateSpoilerBook() {
@@ -75,6 +80,7 @@ function AdminPanel() {
     setSpoilerBookIsbn("");
     setSpoilerBookTitle("");
     alert(response.data.message);
+    window.location.reload();
   }
 
 
