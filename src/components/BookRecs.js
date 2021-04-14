@@ -8,6 +8,7 @@ import OpenLibraryService from "../services/openlibrary.service";
 import BookDataService from "../services/book.service";
 
 import { sideMenu as Menu } from "./sideMenu.js";
+import Footer from "./Footer.js";
 
 function BookRecs() {
   /*
