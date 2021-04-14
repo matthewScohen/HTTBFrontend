@@ -59,3 +59,10 @@ h3 {
   font-weight: bold;
   padding-top: 10px;
 }
+
+.nothing-yet {
+  align-self: center;
+  display: block;
+  padding-top: 15px;
+  width: 100%;
+}

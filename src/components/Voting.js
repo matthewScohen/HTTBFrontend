@@ -96,7 +96,13 @@ function Voting() {
             {createVoteCardFormFieldList(bookList)}
           </Form.Group>
         </Form>
-        <Button secondary size="large" onClick={onSubmit}>Submit</Button>
+        {createVoteCardFormFieldList(bookList).length > 0 ? (
+          <Button secondary size="large" onClick={onSubmit}>Submit</Button>
+        ) : (
+          <center>
+            <p class="nothing-yet">There is nothing to vote on yet.</p>
+          </center>
+        )}
       </div>
     </div>
   );
