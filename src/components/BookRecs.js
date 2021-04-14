@@ -135,6 +135,7 @@ function BookRecs() {
                 <Form.TextArea
                   fluid
                   type='text'
+                  maxLength="255"
                   name='triggerWarnings'
                   value={triggerWarnings}
                   label='Trigger Warnings'
@@ -144,6 +145,7 @@ function BookRecs() {
                 <Form.TextArea
                   fluid
                   type='text'
+                  maxLength="1000"
                   name='notes'
                   value={notes}
                   label='Notes'
