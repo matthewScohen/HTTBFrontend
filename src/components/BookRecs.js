@@ -103,76 +103,78 @@ function BookRecs() {
     <div id="outer-container">
       <Menu pageWrapId={"page-wrap"} outerContainerId={"outer-container"} />
       <div id="page-wrap" class="background-color">
-        <div id="content">
+        <div id="page">
           <center>
             <h1>Book Recommendations</h1>
           </center>
-          <Modal
-            centered={true}
-            closeIcon
-            open={open}
-            trigger={
-              <Button id="btn" icon labelPosition='left' floated='right'>
-                <Icon name='add square'/>
-                Add Book Rec
-              </Button>}
-            size='tiny'
-            onClose={() => setOpen(false)}
-            onOpen={() => setOpen(true)}
-          >
-            <Header icon='add square' content='Add Book Recommendation' />
-            <Modal.Content>
-              <Form>
-                <Form.Input
-                  fluid
-                  type='text'
-                  name='isbn'
-                  value={isbn}
-                  label='ISBN'
-                  placeholder='ISBN'
-                  onChange={e => setISBN(e.target.value)}
-                />
-                <Form.TextArea
-                  fluid
-                  type='text'
-                  maxLength="255"
-                  name='triggerWarnings'
-                  value={triggerWarnings}
-                  label='Trigger Warnings'
-                  placeholder='Trigger Warnings'
-                  onChange={e => setTriggerWarnings(e.target.value)}
-                />
-                <Form.TextArea
-                  fluid
-                  type='text'
-                  maxLength="1000"
-                  name='notes'
-                  value={notes}
-                  label='Notes'
-                  placeholder='Notes'
-                  onChange={e => setNotes(e.target.value)}
-                />
-                <Form.Button color="blue" onClick={handleSubmit}>Submit</Form.Button>
-              </Form>
-            </Modal.Content>
-          </Modal>
-          {!tableContents || tableContents.length === 0 ? (
-            <center>
-              <p>It seems there aren't any book recommendations yet...</p>
-            </center>
-          ) : (
-            <table className="ui celled striped table unstackable">
-              <thead>
-                <tr>
-                  <th>TITLE</th>
-                  <th>AUTHOR</th>
-                  <th>TRIGGER WARNINGS</th>
-                  <th>NOTES</th>
-                </tr>
-              </thead>
-              <tbody>{tableContents}</tbody>
-            </table>
-          )}
+          <div id="content">
+            <Modal
+              centered={true}
+              closeIcon
+              open={open}
+              trigger={
+                <Button id="btn" icon labelPosition='left' floated='right'>
+                  <Icon name='add square'/>
+                  Add Book Rec
+                </Button>}
+              size='tiny'
+              onClose={() => setOpen(false)}
+              onOpen={() => setOpen(true)}
+            >
+              <Header icon='add square' content='Add Book Recommendation' />
+              <Modal.Content>
+                <Form>
+                  <Form.Input
+                    fluid
+                    type='text'
+                    name='isbn'
+                    value={isbn}
+                    label='ISBN'
+                    placeholder='ISBN'
+                    onChange={e => setISBN(e.target.value)}
+                  />
+                  <Form.TextArea
+                    fluid
+                    type='text'
+                    maxLength="255"
+                    name='triggerWarnings'
+                    value={triggerWarnings}
+                    label='Trigger Warnings'
+                    placeholder='Trigger Warnings'
+                    onChange={e => setTriggerWarnings(e.target.value)}
+                  />
+                  <Form.TextArea
+                    fluid
+                    type='text'
+                    maxLength="1000"
+                    name='notes'
+                    value={notes}
+                    label='Notes'
+                    placeholder='Notes'
+                    onChange={e => setNotes(e.target.value)}
+                  />
+                  <Form.Button color="blue" onClick={handleSubmit}>Submit</Form.Button>
+                </Form>
+              </Modal.Content>
+            </Modal>
+            {!tableContents || tableContents.length === 0 ? (
+              <center>
+                <p class="nothing-yet">There are no book recommendations yet.</p>
+              </center>
+            ) : (
+              <table className="ui celled striped table unstackable">
+                <thead>
+                  <tr>
+                    <th>TITLE</th>
+                    <th>AUTHOR</th>
+                    <th>TRIGGER WARNINGS</th>
+                    <th>NOTES</th>
+                  </tr>
+                </thead>
+                <tbody>{tableContents}</tbody>
+              </table>
+            )}
+          </div>
         </div>
       </div>
     </div>
