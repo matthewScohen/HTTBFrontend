@@ -86,7 +86,7 @@ function Voting() {
     //The page wrap must contain everything on the page except the menu
     <div id="outer-container">
       <Menu pageWrapId={"page-wrap"} outerContainerId={"outer-container"} />
-      <div id="page-wrap">
+      <div id="page-wrap" class="background-color">
         <center>
           <h1>Voting</h1>
         </center>

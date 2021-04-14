@@ -8,6 +8,7 @@ import OpenLibraryService from "../services/openlibrary.service";
 import BookDataService from "../services/book.service";
 
 import { sideMenu as Menu } from "./sideMenu.js";
+import Footer from "./Footer.js";
 
 function BookRecs() {
   /*
@@ -26,8 +27,6 @@ function BookRecs() {
      Any code that access data will run once when the page loads and then again when the
      API returns.
   */
-  console.log(data);
-
   let tableContents = [];
   for (var bookIndex in data) {
     if (data[bookIndex] !== undefined) {
@@ -36,6 +35,8 @@ function BookRecs() {
         <tr key={book.title}>
           <td>{book.title}</td>
           <td>{book.author}</td>
+          <td>{book.triggerWarnings}</td>
+          <td>{book.notes}</td>
         </tr>
       ];
       tableContents.push(row);
@@ -74,6 +75,8 @@ function BookRecs() {
   }
 
   const [isbn, setISBN] = useState();
+  const [notes, setNotes] = useState();
+  const [triggerWarnings, setTriggerWarnings] = useState();
   const handleSubmit= (e) => {
     e.preventDefault();
 
@@ -82,11 +85,16 @@ function BookRecs() {
       title: title,
       author: primaryAuthor,
       isbn: isbn,
+      triggerWarnings: triggerWarnings,
+      notes: notes,
       password: password
     }
     BookDataService.create(newBook);
     setISBN('');
+    setTriggerWarnings('');
+    setNotes('');
     setOpen(false);
+    window.location.reload();
   }
 
   return (
@@ -94,54 +102,78 @@ function BookRecs() {
     //The page wrap must contain everything on the page except the menu
     <div id="outer-container">
       <Menu pageWrapId={"page-wrap"} outerContainerId={"outer-container"} />
-      <div id="page-wrap">
-        <center>
-          <h1>Book Recommendations</h1>
-        </center>
-        <Modal
-          centered={true}
-          closeIcon
-          open={open}
-          trigger={
-            <Button basic color='blue' icon labelPosition='left'>
-              <Icon name='add square'/>
-              Add Book Rec
-            </Button>}
-          size='mini'
-          onClose={() => setOpen(false)}
-          onOpen={() => setOpen(true)}
-        >
-          <Header icon='add square' content='Add Book Recommendation' />
-          <Modal.Content>
-            <Form>
-              <Form.Input
-                fluid
-                type='text'
-                name='isbn'
-                value={isbn}
-                label='ISBN'
-                placeholder='ISBN'
-                onChange={e => setISBN(e.target.value)}
-              />
-              <Form.Button color="blue" onClick={handleSubmit}>Submit</Form.Button>
-            </Form>
-          </Modal.Content>
-        </Modal>
-        {!tableContents || tableContents.length === 0 ? (
+      <div id="page-wrap" class="background-color">
+        <div id="content">
           <center>
-            <p>It seems there aren't any book recommendations yet...</p>
+            <h1>Book Recommendations</h1>
           </center>
-        ) : (
-          <table className="ui celled striped table">
-            <thead>
-              <tr>
-                <th>TITLE</th>
-                <th>AUTHOR</th>
-              </tr>
-            </thead>
-            <tbody>{tableContents}</tbody>
-          </table>
-        )}
+          <Modal
+            centered={true}
+            closeIcon
+            open={open}
+            trigger={
+              <Button id="btn" icon labelPosition='left' floated='right'>
+                <Icon name='add square'/>
+                Add Book Rec
+              </Button>}
+            size='tiny'
+            onClose={() => setOpen(false)}
+            onOpen={() => setOpen(true)}
+          >
+            <Header icon='add square' content='Add Book Recommendation' />
+            <Modal.Content>
+              <Form>
+                <Form.Input
+                  fluid
+                  type='text'
+                  name='isbn'
+                  value={isbn}
+                  label='ISBN'
+                  placeholder='ISBN'
+                  onChange={e => setISBN(e.target.value)}
+                />
+                <Form.TextArea
+                  fluid
+                  type='text'
+                  maxLength="255"
+                  name='triggerWarnings'
+                  value={triggerWarnings}
+                  label='Trigger Warnings'
+                  placeholder='Trigger Warnings'
+                  onChange={e => setTriggerWarnings(e.target.value)}
+                />
+                <Form.TextArea
+                  fluid
+                  type='text'
+                  maxLength="1000"
+                  name='notes'
+                  value={notes}
+                  label='Notes'
+                  placeholder='Notes'
+                  onChange={e => setNotes(e.target.value)}
+                />
+                <Form.Button color="blue" onClick={handleSubmit}>Submit</Form.Button>
+              </Form>
+            </Modal.Content>
+          </Modal>
+          {!tableContents || tableContents.length === 0 ? (
+            <center>
+              <p>It seems there aren't any book recommendations yet...</p>
+            </center>
+          ) : (
+            <table className="ui celled striped table unstackable">
+              <thead>
+                <tr>
+                  <th>TITLE</th>
+                  <th>AUTHOR</th>
+                  <th>TRIGGER WARNINGS</th>
+                  <th>NOTES</th>
+                </tr>
+              </thead>
+              <tbody>{tableContents}</tbody>
+            </table>
+          )}
+        </div>
       </div>
     </div>
   );

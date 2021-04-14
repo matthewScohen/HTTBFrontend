@@ -38,6 +38,11 @@
   }
 }
 
+.background-color {
+  background-color: #eaf3f9;
+  min-height: 100vh;
+}
+
 #page-wrap {
   width: 100%;
   margin: auto;

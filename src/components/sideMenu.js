@@ -12,7 +12,6 @@ class sideMenu extends React.Component {
     return (
       <Menu>
         <a id="home" className="menu-item" href="/">Home</a>
-        <a id="about" className="menu-item" href="/About">About</a>
         <a id="voting" className="menu-item" href="/Voting">Voting</a>
         <a id="bookRecs" className="menu-item" href="/BookRecs">Book Recommendations</a>
       </Menu>
