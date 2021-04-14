@@ -59,10 +59,7 @@ function Landing() {
             <h1>HOOKED TO <br></br>THE BOOK CLUB</h1>
             <div id="welcome-description">
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure
+                
               </p>
             </div>
           </div>
