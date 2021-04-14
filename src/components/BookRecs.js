@@ -93,6 +93,7 @@ function BookRecs() {
     setTriggerWarnings('');
     setNotes('');
     setOpen(false);
+    window.location.reload();
   }
 
   return (
