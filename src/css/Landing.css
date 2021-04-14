@@ -35,6 +35,7 @@ html {
 }
 
 #spoiler-book {
+  max-width: 40%;
   position: absolute;
   right: 5px;
   margin-left: auto;
