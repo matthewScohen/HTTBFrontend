@@ -43,12 +43,8 @@ function BookOfTheMonth({ props }) {
     <div id="spoiler-book">
       <Icon name="book" size="large"></Icon>
         Spoiler Book:
-
-
         {bookData && <p><b>{title + " - " + primaryAuthor}</b></p>}
-        {/*<img id="botm-cover" src={coverLink && `${coverLink}`}></img>*/}
     </div>
-
   );
 }
 
