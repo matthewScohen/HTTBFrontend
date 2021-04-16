@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Button, Modal, Header, Icon, Form } from "semantic-ui-react";
+import { Button, Modal, Header, Popup, Icon, Form, Input } from "semantic-ui-react";
 
 import "../css/BookRecs.css";
 import ".././App.css";
@@ -89,6 +89,7 @@ function BookRecs() {
       notes: notes,
       password: password
     }
+    console.log(newBook);
     BookDataService.create(newBook);
     setISBN('');
     setTriggerWarnings('');
@@ -124,15 +125,27 @@ function BookRecs() {
               <Header icon='add square' content='Add Book Recommendation' />
               <Modal.Content>
                 <Form>
-                  <Form.Input
+                  <Form.Field>
+                    <label id="isbn-label">ISBN
+                  <Popup
+                    content='The International Standard Book Number (ISBN) is a 13-digit number that uniquely identifies books and book-like products published internationally.'
+                    trigger={
+                      <Icon id="isbn-popup" name="question circle outline" />
+                    }
+                  />
+                  </label>
+                    <a id="isbn-link" href="https://isbnsearch.org/" target="_blank">
+                    <p>Click here to search for ISBNs</p>
+                  </a>
+                  <input
                     fluid
                     type='text'
                     name='isbn'
                     value={isbn}
-                    label='ISBN'
                     placeholder='ISBN'
                     onChange={e => setISBN(e.target.value)}
                   />
+                  </Form.Field>
                   <Form.TextArea
                     fluid
                     type='text'

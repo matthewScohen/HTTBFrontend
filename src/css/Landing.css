@@ -22,7 +22,7 @@ html {
     rgba(255, 255, 255, 0)
   );
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
   align-items: center;
   justify-content: center;
   position: absolute;
@@ -35,7 +35,7 @@ html {
 }
 
 #spoiler-book {
-  max-width: 40%;
+  max-width: 35%;
   position: absolute;
   right: 5px;
   margin-left: auto;
@@ -56,7 +56,7 @@ html {
 }
 
 #spoiler-book .icon {
-  padding-right: 10px;
+  margin: 0 10px;
 }
 
 .nav-button {
