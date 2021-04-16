@@ -18,6 +18,21 @@
   right: auto;
 }
 
+#isbn-label {
+  line-height: 1 !important;
+}
+
+#isbn-popup {
+  padding: 0 5px;
+}
+
+#isbn-link {
+  text-decoration: underline;
+  font-size: 10px;
+  padding: 0;
+  margin: 0;
+}
+
 #btn {
   margin: 10px 0 0;
   background-color: #89bee0;
