@@ -7,8 +7,7 @@ import VoteBookService from "../services/voteBook.service";
 import BookDataService from "../services/book.service";
 
 import { sideMenu as Menu } from "./sideMenu.js";
-
-
+import Footer from "./Footer.js";
 
 function AdminPanel() {
   const [addEventTitle, setAddEventTitle] = useState("");
@@ -207,7 +206,6 @@ function AdminPanel() {
         </center>
         <div id="forms-container">
           <div id="add-calendar" className="separate-form">
-
           <Segment inverted>
           <h2>Add event to calendar</h2>
           <Form inverted onSubmit={handleAddEvent}>
@@ -245,10 +243,7 @@ function AdminPanel() {
           </Table>
           </Segment>
           </div>
-
-
         <div id="delete-calendar" className="separate-form">
-
           <Segment inverted>
         <h2>Delete event from calendar</h2>
         <Form inverted onSubmit={handleDeleteEvent}>
@@ -276,10 +271,7 @@ function AdminPanel() {
           </Table>
         </Segment>
         </div>
-
-
         <div id="change-vote" className="separate-form">
-
           <Segment inverted>
         <h2> Add/Remove Book To/From Voting Poll </h2>
         <Form inverted>
@@ -389,6 +381,7 @@ function AdminPanel() {
 
         </div>
         </div>
+        <Footer />
       </div>
     </div>
   );

@@ -66,3 +66,14 @@ h3 {
   padding-top: 15px;
   width: 100%;
 }
+
+#footer-flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+#page {
+  flex: 1 0 auto;
+}

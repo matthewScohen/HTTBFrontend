@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import {Radio, Form, Button} from 'semantic-ui-react';
+
 import VoteBookService from "../services/voteBook.service";
 import { sideMenu as Menu } from "./sideMenu.js";
+
+import Footer from "./Footer.js";
 import VoteBookCard from "./VoteBookCard.js";
 
 import ".././App.css";
@@ -87,22 +90,26 @@ function Voting() {
     <div id="outer-container">
       <Menu pageWrapId={"page-wrap"} outerContainerId={"outer-container"} />
       <div id="page-wrap" class="background-color">
-        <center>
-          <h1>Voting</h1>
-        </center>
-
-        <Form>
-          <Form.Group widths='equal'>
-            {createVoteCardFormFieldList(bookList)}
-          </Form.Group>
-        </Form>
-        {createVoteCardFormFieldList(bookList).length > 0 ? (
-          <Button secondary size="large" onClick={onSubmit}>Submit</Button>
-        ) : (
-          <center>
-            <p class="nothing-yet">There is nothing to vote on yet.</p>
-          </center>
-        )}
+        <div id="footer-flex">
+          <div id="page">
+            <center>
+              <h1>Voting</h1>
+            </center>
+            <Form>
+              <Form.Group widths='equal'>
+                {createVoteCardFormFieldList(bookList)}
+              </Form.Group>
+            </Form>
+            {createVoteCardFormFieldList(bookList).length > 0 ? (
+              <Button secondary size="large" onClick={onSubmit}>Submit</Button>
+            ) : (
+              <center>
+                <p class="nothing-yet">There is nothing to vote on yet.</p>
+              </center>
+            )}
+            </div>
+          <Footer />
+        </div>
       </div>
     </div>
   );

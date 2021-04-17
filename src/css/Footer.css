@@ -1,5 +1,6 @@
 #footer {
-  height: 10vh;
+  height: 6vh;
+  flex-shrink: 0;
 }
 
 #footer-top {
