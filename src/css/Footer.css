@@ -15,4 +15,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+}
+
+#footer-icons {
+  display: flex;
+  justify-content: space-around;
+  min-width: 70px;
+}
+
+.footer-icon {
+  color: #92a5bf;
+}
+
+.footer-icon:hover {
+  color: #afc5e3;
+  text-decoration: none;
 }
