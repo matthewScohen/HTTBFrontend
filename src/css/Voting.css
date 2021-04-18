@@ -44,10 +44,12 @@
     align-items: center;
     justify-content: center;
     border: 1px solid rgb(54, 94, 139);
+    border-top: 20px solid rgb(188, 217, 255);
+    border-bottom: 20px solid rgb(188, 217, 255);
 }
 
 .background-color {
-    background-color: rgb(188, 217, 255);
+    background-color: rgb(213, 231, 255);
 }
 
 #submit-button {
