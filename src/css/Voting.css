@@ -1,11 +1,11 @@
 #botm-cover {
-    height: 420px;
+    height: 32vh;
 }
 
 #vote-card-holder {
     margin: 15px;
     padding: 5px;
-    height: 530px;
+    height: 40vh;
 }
 
 #vote-card-content {
@@ -43,7 +43,6 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgb(54, 94, 139);
     border-top: 20px solid rgb(188, 217, 255);
     border-bottom: 20px solid rgb(188, 217, 255);
 }
