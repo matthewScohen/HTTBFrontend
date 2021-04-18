@@ -1,0 +1,54 @@
+#botm-cover {
+    height: 420px;
+}
+#vote-card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1em;
+}
+
+#vote-card-header {
+    text-align: center;
+}
+
+#vote-card-author {
+    text-align: center;
+}
+
+#vote-radio {
+    font-size: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#vote-holder {
+    margin-top: 40px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-bottom: 20px;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(143, 183, 229);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-top: 20px solid rgb(188, 217, 255);
+    border-bottom: 20px solid rgb(188, 217, 255);
+}
+
+.background-color {
+    background-color: rgb(213, 231, 255);
+}
+
+#submit-button {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}

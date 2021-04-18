@@ -3,6 +3,7 @@ import { Card, Image } from "semantic-ui-react";
 import OpenLibraryService from "../services/openlibrary.service";
 
 import ".././App.css";
+import '../css/Voting.css';
 
 function VoteBookCard({ props }) {
   const ISBN = props.ISBN;
@@ -40,11 +41,12 @@ function VoteBookCard({ props }) {
   }
 
   return (
-    <Card>
-      <Card.Content>
-        <Image id="botm-cover" src={coverLink && `${coverLink}`}></Image>
-        <Card.Header>{title}</Card.Header>
-        <Card.Meta>{primaryAuthor}</Card.Meta>
+    <Card id="vote-card-holder">
+      <Image id="botm-cover" src={coverLink && `${coverLink}`}></Image>
+      <Card.Content id="vote-card-content">
+        
+        <Card.Header id="vote-card-header">{title}</Card.Header>
+        <Card.Meta id="vote-card-author">{primaryAuthor}</Card.Meta>
       </Card.Content>
     </Card>
   );
