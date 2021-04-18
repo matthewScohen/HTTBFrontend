@@ -49,3 +49,11 @@
 .background-color {
     background-color: rgb(188, 217, 255);
 }
+
+#submit-button {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}

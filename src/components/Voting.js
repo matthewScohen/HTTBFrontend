@@ -101,7 +101,9 @@ function Voting() {
         </Form>
         </div>
         {createVoteCardFormFieldList(bookList).length > 0 ? (
+          <div id="submit-button">
           <Button secondary size="large" onClick={onSubmit}>Submit</Button>
+          </div>
         ) : (
           <center>
             <p class="nothing-yet">There is nothing to vote on yet.</p>
