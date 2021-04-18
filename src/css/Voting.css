@@ -6,6 +6,7 @@
     margin: 15px;
     padding: 5px;
     height: 40vh;
+    width: auto
 }
 
 #vote-card-content {
@@ -13,6 +14,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    font-size: 1em;
 }
 
 #vote-card-header {
