@@ -1,12 +1,15 @@
 #botm-cover {
-    height: 32vh;
+    display: block;
+    max-width:325px;
+    max-height:500px;
+    width: auto;
+    height: auto;
 }
 
 #vote-card-holder {
     margin: 15px;
     padding: 5px;
     height: 40vh;
-    width: auto
 }
 
 #vote-card-content {
