@@ -5,6 +5,7 @@ import { sideMenu as Menu } from "./sideMenu.js";
 import VoteBookCard from "./VoteBookCard.js";
 
 import ".././App.css";
+import '../css/Voting.css';
 
 function Voting() {
   /*
@@ -48,7 +49,8 @@ function Voting() {
       <div>
         <VoteBookCard props={{ ISBN: book.isbn }} />
           <Form.Field>
-            <Radio
+            <div id="vote-radio">
+            <Radio 
               label={label}
               name='radioGroup'
               value={book}
@@ -59,6 +61,7 @@ function Voting() {
               }
               onChange={handleChange}
             />
+            </div>
           </Form.Field>
       </div>
     )
@@ -90,12 +93,13 @@ function Voting() {
         <center>
           <h1>Voting</h1>
         </center>
-
+      <div id="vote-holder">
         <Form>
           <Form.Group widths='equal'>
             {createVoteCardFormFieldList(bookList)}
           </Form.Group>
         </Form>
+        </div>
         {createVoteCardFormFieldList(bookList).length > 0 ? (
           <Button secondary size="large" onClick={onSubmit}>Submit</Button>
         ) : (
