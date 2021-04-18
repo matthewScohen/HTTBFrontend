@@ -1,17 +1,6 @@
 #botm-cover {
-    display: block;
-    max-width:325px;
-    max-height:500px;
-    width: auto;
-    height: auto;
+    height: 420px;
 }
-
-#vote-card-holder {
-    margin: 15px;
-    padding: 5px;
-    height: 40vh;
-}
-
 #vote-card-content {
     display: flex;
     flex-direction: column;
