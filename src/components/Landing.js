@@ -53,12 +53,7 @@ function Landing() {
         <div id="landing-welcome">
           <div id="welcome-text">
             <h5>WELCOME TO</h5>
-            <h1>HOOKED TO <br></br>THE BOOK CLUB</h1>
-            <div id="welcome-description">
-              <p>
-
-              </p>
-            </div>
+            <h1>HOOKED TO <br></br>BOOK CLUB</h1>
           </div>
           <div id="welcome-buttons">
            <AwesomeButton type="primary" className="button" href="https://discord.gg/QAc8c3S"><Icon name='discord' size="large"/> Discord</AwesomeButton>

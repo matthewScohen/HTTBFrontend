@@ -33,7 +33,7 @@
   width: 90%;
   height: 100%;
   border: 10px solid white;
-  
+
 }
 
 #officers-text-container {
@@ -47,7 +47,7 @@
   }
   #officer-page {
     background-color: #cee2f9;
-    height: 155vh;
+    height: 360vh;
   }
   #officers-text-container {
     max-width: 450px;
