@@ -1,7 +1,7 @@
 import axios from "axios";
 
 var calendarAxiosInstance = axios.create({
-  baseURL: 'http://localhost:8080/api/calendarEvents/',
+  baseURL: 'http://uf-hookedtothebook.club:8080/api/calendarEvents/',
   headers: {
     "Content-type": "application/json"
   }

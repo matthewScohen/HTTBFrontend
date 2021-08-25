@@ -8,30 +8,38 @@ import { Card } from "semantic-ui-react";
 import "../css/OfficerBio.css";
 import OfficerBio from "./OfficerBio.js";
 
-import bijuriImage from '../assets/images/bijuri.jpeg';
-import lucyImage from '../assets/images/lucy.jpeg';
+import caroImage from '../assets/images/caro.jpeg';
+import zachImage from '../assets/images/zach.jpeg';
 import toshitaImage from '../assets/images/toshita.jpeg';
+import matthewImage from '../assets/images/matthew.jpeg';
 
 function Officers() {
-    const bio1 = {
-        name: "Lucy Frank",
-        position: "President",
-        description: "I’m Lucy, a senior Environmental Science major and librarian-in-training. When I’m not reading, I can be found climbing trees, knitting, or searching for my last three Korok seeds. Give me recommendations for great fantasy novels!",
-        imageSrc: lucyImage
+    const bio2 = {
+        name: "Zachary Granat",
+        position: "Treasurer ",
+        description: "I'm Zachary, a sophomore (the baby of the bunch) majoring in English. Here are some of the books whose mention summons my presence: Don Quixote, Moby-Dick, Bleak House, Gormenghast, and The Brothers Karamazov.",
+        imageSrc: zachImage
       };
-      const bio2 = {
-        name: "Bijuri Patel",
-        position: "Vice President (Veep)",
-        description: "I'm Bijuri, a senior Information Systems major aiming to be a technical writer. I love indulging in stories, and my favorites include Percy Jackson and the Olympians; Six of Crows and Crooked Kingdom; and Red, White & Royal Blue. Please let me know what your favorite books are!",
-        imageSrc: bijuriImage
+      const bio3 = {
+        name: "Caro Bello",
+        position: "Vice President",
+        description: "I’m Caro, a junior Wildlife Conservation major and English minor. I love reading, hiking and playing with my pet snake Tangerine!",
+        imageSrc: caroImage
       };
 
-      const bio3 = {
+      const bio1 = {
         name: "Toshita Barve",
-        position: "Treasurer",
-        description: "I'm Toshita, a junior Biology major, minoring in Sociology. I love to read but please don't recommend any books to me because my TBR already has 1800 books on it!",
+        position: "President",
+        description: "I'm Toshita, a senior Biology major, minoring in Sociology. If you recommend a book to me chances are, it’ll already be on my TBR… Don’t let that stop you though! I want all the recommendations!",
         imageSrc: toshitaImage
       };
+
+      const bio4 = {
+        name: "Matthew Cohen",
+        position: "Website Manager",
+        description: "I'm Matthew, a junior Computer Engineering major. I love to read any and all things fantasy and sci-fi; when I'm not reading you can probably find me playing ultimate frisbee (or doing homework).",
+        imageSrc: matthewImage
+      }
 
   return (
     <div id="officer-page">
@@ -58,6 +66,9 @@ function Officers() {
                 </div>
                 <div class="cardRow">
                 <div><OfficerBio class="officer-bio" props={bio3} /></div>
+                </div>
+                <div class="cardRow">
+                <div><OfficerBio class="officer-bio" props={bio4} /></div>
                 </div>
             </div>
           </center>

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 var voteBookAxiosInstance = axios.create({
-  baseURL: 'http://localhost:8080/api/voteBooks/',
+  baseURL: 'http://uf-hookedtothebook.club:8080/api/voteBooks/',
   headers: {
     "Content-type": "application/json"
   }
